@@ -8,7 +8,21 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <article className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16">
-      <h1 className="text-3xl font-bold text-gray-900">About</h1>
+      <header className="border-b border-gray-100 pb-6">
+        <h1 className="text-3xl font-bold text-gray-900">About</h1>
+        <p className="mt-3 max-w-2xl text-gray-700">
+          Learn how the Maine pilot works, why it matters, and how you can help
+          bring public AI to your community.
+        </p>
+        <div className="mt-4 flex flex-wrap items-center gap-4">
+          <a
+            href="mailto:info@publicai.network?subject=Conversation%20about%20Maine%20public%20AI%20pilot"
+            className="inline-flex items-center rounded-md bg-brand px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand/90"
+          >
+            Start a conversation about Maine
+          </a>
+        </div>
+      </header>
 
       <section className="mt-8">
         <h2 className="text-xl font-semibold text-gray-900">
@@ -39,6 +53,14 @@ export default function AboutPage() {
             A defined sunset: evaluate, scale, or shut down after 12–18 months
           </li>
         </ul>
+        <div className="mt-4 flex flex-wrap items-center gap-4">
+          <a
+            href="mailto:info@publicai.network?subject=Becoming%20a%20pilot%20site"
+            className="inline-flex items-center rounded-md bg-brand px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand/90"
+          >
+            Ask about becoming a pilot site
+          </a>
+        </div>
       </section>
 
       <section className="mt-10">
@@ -58,6 +80,16 @@ export default function AboutPage() {
           residents rather than distant private platforms. This is a replicable
           pattern; Maine can lead the way.
         </p>
+        <p className="mt-4 text-sm text-gray-700">
+          Want to brief your local officials?{" "}
+          <a
+            href="mailto:info@publicai.network?subject=Briefing%20local%20officials%20on%20Public%20AI%20USA"
+            className="font-medium text-brand hover:underline"
+          >
+            Email us for talking points
+          </a>
+          .
+        </p>
       </section>
 
       <section className="mt-10">
@@ -73,6 +105,17 @@ export default function AboutPage() {
           funding pathway has been identified, combining MCA&apos;s Digital
           Opportunity Fund with federal and state New Markets Tax Credits to
           support community-benefit, non-hyperscale infrastructure.
+        </p>
+        <p className="mt-4 text-sm text-gray-700">
+          If you&apos;re a funder or institutional partner and want to support
+          the pilot,{" "}
+          <a
+            href="mailto:info@publicai.network?subject=Funding%20or%20co-investment%20in%20Public%20AI%20USA"
+            className="font-medium text-brand hover:underline"
+          >
+            contact us about funding or co-investment
+          </a>
+          .
         </p>
       </section>
 
@@ -111,7 +154,7 @@ export default function AboutPage() {
         </ul>
       </section>
 
-      <section className="mt-10">
+      <section className="mt-10" id="contact">
         <h2 className="text-xl font-semibold text-gray-900">Contact</h2>
         <p className="mt-4 text-gray-700">
           For general inquiries:{" "}
@@ -121,8 +164,11 @@ export default function AboutPage() {
           >
             info@publicai.network
           </a>
-          . For funders and investment inquiries, please reach out to the same
-          address.
+          .
+        </p>
+        <p className="mt-2 text-gray-700">
+          For funders and investment inquiries, please use the same address with
+          the subject line “Investor inquiry”.
         </p>
       </section>
     </article>

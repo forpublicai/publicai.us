@@ -30,6 +30,20 @@ export default function DatacenterBlock() {
               Why it matters
             </Link>
           </p>
+          <div className="mt-4 flex flex-wrap items-center gap-4">
+            <Link
+              href="/about/"
+              className="inline-flex items-center rounded-md bg-brand px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand/90"
+            >
+              Explore the Maine pilot
+            </Link>
+            <a
+              href="mailto:info@publicai.network?subject=Sharing%20Public%20AI%20USA%20with%20our%20council"
+              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            >
+              Share this with your council
+            </a>
+          </div>
         </div>
       </div>
     </section>

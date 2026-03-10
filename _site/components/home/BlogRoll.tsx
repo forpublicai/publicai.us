@@ -29,6 +29,20 @@ export default function BlogRoll() {
             </li>
           ))}
         </ul>
+        <div className="mt-6 flex flex-wrap items-center gap-4">
+          <Link
+            href="/blog/"
+            className="text-sm font-medium text-brand hover:underline"
+          >
+            View all posts
+          </Link>
+          <a
+            href="mailto:info@publicai.network?subject=Public%20AI%20USA%20updates"
+            className="text-sm text-gray-600 hover:text-gray-900"
+          >
+            Get updates by email
+          </a>
+        </div>
       </div>
     </section>
   );

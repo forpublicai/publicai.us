@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Hero() {
   return (
     <section className="bg-gradient-to-b from-gray-50 to-white py-16 sm:py-24">
@@ -10,7 +12,21 @@ export default function Hero() {
           for local Maine companies, communities, and residents—with
           community-based governance and a clear path to scale or sunset.
         </p>
-        <div className="mt-8 max-w-2xl">
+        <div className="mt-8 max-w-2xl space-y-6">
+          <div className="flex flex-wrap items-center gap-4">
+            <a
+              href="mailto:info@publicai.network?subject=Maine%20public%20AI%20deployment"
+              className="inline-flex items-center rounded-md bg-brand px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand/90"
+            >
+              Talk to us about a Maine deployment
+            </a>
+            <Link
+              href="/about/"
+              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            >
+              Read how the pilot works →
+            </Link>
+          </div>
           <div className="flex aspect-video items-center justify-center rounded-lg bg-gray-200 text-gray-500">
             Video coming soon
           </div>

@@ -24,6 +24,20 @@ export default function Services() {
             — AI for public libraries nationwide
           </li>
         </ul>
+        <div className="mt-6 flex flex-wrap items-center gap-4">
+          <a
+            href="mailto:info@publicai.network?subject=Requesting%20access%20to%20Public%20AI%20USA%20services"
+            className="inline-flex items-center rounded-md bg-brand px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand/90"
+          >
+            Request access
+          </a>
+          <a
+            href="/about/"
+            className="text-sm font-medium text-gray-700 hover:text-gray-900"
+          >
+            See examples and details →
+          </a>
+        </div>
       </div>
     </section>
   );

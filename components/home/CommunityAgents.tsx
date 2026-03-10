@@ -20,6 +20,14 @@ export default function CommunityAgents() {
         <p className="mt-4 text-sm text-gray-500">
           More use cases and availability coming as the pilot launches.
         </p>
+        <div className="mt-6 flex flex-wrap items-center gap-4">
+          <a
+            href="mailto:info@publicai.network?subject=Proposing%20a%20community%20agent"
+            className="inline-flex items-center rounded-md bg-brand px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand/90"
+          >
+            Propose a community agent
+          </a>
+        </div>
       </div>
     </section>
   );

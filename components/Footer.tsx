@@ -17,6 +17,38 @@ export default function Footer() {
             local companies, communities, and residents.
           </p>
         </div>
+        <div className="mt-6 flex flex-col gap-2 text-xs text-gray-600 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            Interested in using or hosting public AI in Maine?{" "}
+            <a
+              href="mailto:info@publicai.network?subject=Using%20or%20hosting%20Public%20AI%20USA"
+              className="font-medium text-brand hover:underline"
+            >
+              Email us
+            </a>
+            .
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a href="/terms/" className="hover:text-gray-900">
+              Terms
+            </a>
+            <a href="/privacy/" className="hover:text-gray-900">
+              Privacy
+            </a>
+            <a href="/cookies/" className="hover:text-gray-900">
+              Cookies
+            </a>
+            <a href="mailto:info@publicai.network" className="hover:text-gray-900">
+              Contact
+            </a>
+            <a
+              href="mailto:info@publicai.network?subject=Investor%20inquiry"
+              className="hover:text-gray-900"
+            >
+              Investors
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );

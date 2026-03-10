@@ -1,7 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const nav = [{ label: "About", href: "/about/" }];
+const nav = [
+  { label: "About", href: "/about/" },
+  { label: "Contact", href: "/about/#contact" },
+];
 
 export default function Header() {
   return (

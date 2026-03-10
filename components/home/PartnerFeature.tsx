@@ -18,12 +18,20 @@ export default function PartnerFeature() {
               We&apos;re working with local organizations to bring public AI to
               Maine. Details coming soon.
             </p>
-            <Link
-              href="/about/"
-              className="mt-4 inline-block rounded bg-brand px-4 py-2 text-sm font-medium text-white hover:bg-brand/90"
-            >
-              Read more →
-            </Link>
+            <div className="mt-4 flex flex-wrap items-center gap-4">
+              <Link
+                href="/about/"
+                className="inline-flex items-center rounded bg-brand px-4 py-2 text-sm font-medium text-white hover:bg-brand/90"
+              >
+                Read more →
+              </Link>
+              <a
+                href="mailto:info@publicai.network?subject=Becoming%20a%20local%20partner"
+                className="text-sm font-medium text-gray-700 hover:text-gray-900"
+              >
+                Your organization here — get in touch
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -41,12 +49,20 @@ export default function PartnerFeature() {
           <p className="mt-2 text-gray-600">
             {partnerPost.excerpt}
           </p>
-          <Link
-            href={`/blog/${partnerPost.slug}/`}
-            className="mt-4 inline-block rounded bg-brand px-4 py-2 text-sm font-medium text-white hover:bg-brand/90"
-          >
-            Read more →
-          </Link>
+          <div className="mt-4 flex flex-wrap items-center gap-4">
+            <Link
+              href={`/blog/${partnerPost.slug}/`}
+              className="inline-flex items-center rounded bg-brand px-4 py-2 text-sm font-medium text-white hover:bg-brand/90"
+            >
+              Read more →
+            </Link>
+            <a
+              href="mailto:info@publicai.network?subject=Becoming%20a%20local%20partner"
+              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            >
+              Become a partner
+            </a>
+          </div>
         </div>
       </div>
     </section>
