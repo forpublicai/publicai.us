@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: #ef233c;
+  --brand-muted: #eedfdf;
+}
+
+@layer base {
+  body {
+    @apply antialiased text-gray-900 bg-white;
+  }
+}
