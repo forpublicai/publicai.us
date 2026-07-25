@@ -1,14 +1,201 @@
+@import "../vendor/design-system/tokens/colors.css";
+@import "../vendor/design-system/tokens/typography.css";
+@import "../vendor/design-system/tokens/shape.css";
+
+/* NB @font-face rules in vendor/design-system/tokens/fonts.css are omitted —
+   font files are not redistributed. Overpass Bold is the --font-brand fallback. */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --brand: #ef233c;
-  --brand-muted: #eedfdf;
-}
-
 @layer base {
   body {
-    @apply antialiased text-gray-900 bg-white;
+    font-family: var(--font-sans);
+    font-size: var(--type-body-size);
+    line-height: var(--type-body-lh);
+    color: var(--text-primary);
+    background-color: var(--surface-page);
+    @apply antialiased;
+  }
+
+  a {
+    color: var(--pai-black);
+    text-decoration-color: var(--pai-red);
+  }
+
+  a:hover {
+    color: var(--pai-red);
+  }
+}
+
+@layer components {
+  .pai-container {
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .pai-container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  .pai-display {
+    font-family: var(--font-sans);
+    font-weight: var(--type-display-weight);
+    font-size: clamp(48px, 8vw, var(--type-h2-size));
+    line-height: var(--type-display-lh);
+    letter-spacing: var(--type-display-ls);
+    color: var(--text-primary);
+  }
+
+  .pai-h2 {
+    font-family: var(--font-sans);
+    font-weight: var(--type-h2-weight);
+    font-size: clamp(40px, 6vw, var(--type-h2-size));
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+  }
+
+  .pai-h3 {
+    font-family: var(--font-headline);
+    font-weight: var(--type-h3-weight);
+    font-size: clamp(28px, 4vw, var(--type-h3-size));
+    line-height: 1.15;
+    color: var(--text-primary);
+  }
+
+  .pai-section {
+    font-family: var(--font-ui);
+    font-weight: var(--type-section-weight);
+    font-size: var(--type-section-size);
+    line-height: 1.3;
+    color: var(--text-primary);
+  }
+
+  .pai-ui {
+    font-family: var(--font-ui);
+    font-weight: var(--type-ui-weight);
+    font-size: var(--type-ui-size);
+    line-height: 1.4;
+    color: var(--text-primary);
+  }
+
+  .pai-body {
+    font-family: var(--font-sans);
+    font-weight: var(--type-body-weight);
+    font-size: var(--type-body-size);
+    line-height: var(--type-body-lh);
+    color: var(--text-primary);
+  }
+
+  .pai-body-secondary {
+    font-family: var(--font-sans);
+    font-weight: var(--type-body-weight);
+    font-size: var(--type-body-size);
+    line-height: var(--type-body-lh);
+    color: var(--text-secondary);
+  }
+
+  .pai-mono {
+    font-family: var(--font-mono);
+    font-size: var(--type-mono-size);
+    line-height: 1.4;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .pai-btn-label {
+    font-family: var(--font-sans);
+    font-weight: var(--type-button-weight);
+    font-size: var(--type-button-size);
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .pai-nav-wordmark {
+    font-family: var(--font-sans);
+    font-weight: var(--type-nav-weight);
+    font-size: var(--type-nav-size);
+    line-height: 1.2;
+    letter-spacing: var(--type-nav-ls);
+    color: var(--text-primary);
+  }
+
+  .pai-card {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    padding: 32px;
+    border: none;
+  }
+
+  .pai-hairline-top {
+    border-top: 1px solid var(--border-hairline);
+  }
+
+  .pai-hairline-bottom {
+    border-bottom: 1px solid var(--border-hairline);
+  }
+
+  .pai-prose {
+    font-family: var(--font-sans);
+    font-size: var(--type-body-size);
+    line-height: var(--type-body-lh);
+    color: var(--text-primary);
+  }
+
+  .pai-prose h2 {
+    font-family: var(--font-headline);
+    font-weight: var(--type-h3-weight);
+    font-size: var(--type-h3-size);
+    line-height: 1.15;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .pai-prose h3 {
+    font-family: var(--font-ui);
+    font-weight: var(--type-section-weight);
+    font-size: var(--type-section-size);
+    line-height: 1.3;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .pai-prose p {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .pai-prose ul {
+    margin-bottom: 1rem;
+    padding-left: 1.25rem;
+    list-style-type: disc;
+  }
+
+  .pai-prose li {
+    margin-bottom: 0.5rem;
+  }
+
+  .pai-prose a {
+    color: var(--pai-black);
+    text-decoration: underline;
+    text-decoration-color: var(--pai-red);
+  }
+
+  .pai-prose a:hover {
+    color: var(--pai-red);
+  }
+
+  .pai-prose strong {
+    font-weight: 600;
   }
 }

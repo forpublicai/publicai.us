@@ -9,8 +9,29 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brand: "#EF233C",
-        brandMuted: "#EEDFDF",
+        brand: "var(--pai-red)",
+        brandHover: "var(--pai-red-hover)",
+        subtle: "var(--pai-gray-100)",
+        secondary: "var(--pai-gray-500)",
+        oak: "var(--pai-oak)",
+        leather: "var(--pai-leather)",
+        parchment: "var(--pai-parchment)",
+        hairline: "var(--border-hairline)",
+      },
+      borderRadius: {
+        pill: "var(--radius-pill)",
+        card: "var(--radius-card)",
+        control: "var(--radius-control)",
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)"],
+        ui: ["var(--font-ui)"],
+        headline: ["var(--font-headline)"],
+        mono: ["var(--font-mono)"],
+        brand: ["var(--font-brand)"],
+      },
+      maxWidth: {
+        content: "var(--content-max-width)",
       },
     },
   },

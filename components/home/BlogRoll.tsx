@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PageSection from "@/components/ds/PageSection";
 import { getAllPosts } from "@/lib/posts";
 
 export default function BlogRoll() {
@@ -7,43 +8,38 @@ export default function BlogRoll() {
   if (posts.length === 0) return null;
 
   return (
-    <section className="py-12 sm:py-16">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6">
-        <h2 className="text-2xl font-bold text-gray-900">From the blog</h2>
-        <ul className="mt-6 space-y-6">
-          {posts.map((post) => (
-            <li key={post.slug} className="border-b border-gray-100 pb-6 last:border-0">
-              <Link href={`/blog/${post.slug}/`} className="group block">
-                <span className="text-sm text-gray-500">
-                  {new Date(post.date).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })}
-                </span>
-                <h3 className="mt-1 font-semibold text-gray-900 group-hover:text-brand">
-                  {post.title}
-                </h3>
-                <p className="mt-1 text-sm text-gray-600">{post.excerpt}</p>
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-6 flex flex-wrap items-center gap-4">
-          <Link
-            href="/blog/"
-            className="text-sm font-medium text-brand hover:underline"
-          >
-            View all posts
-          </Link>
-          <a
-            href="mailto:info@publicai.network?subject=Public%20AI%20USA%20updates"
-            className="text-sm text-gray-600 hover:text-gray-900"
-          >
-            Get updates by email
-          </a>
-        </div>
+    <PageSection borderTop>
+      <h2 className="pai-h3">From the blog</h2>
+      <ul className="mt-8 space-y-0">
+        {posts.map((post) => (
+          <li key={post.slug} className="pai-hairline-bottom py-6 last:border-b-0">
+            <Link href={`/blog/${post.slug}/`} className="group block no-underline">
+              <time dateTime={post.date} className="pai-mono">
+                {new Date(post.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                })}
+              </time>
+              <h3 className="pai-section mt-2 group-hover:text-brand">
+                {post.title}
+              </h3>
+              <p className="pai-body-secondary mt-2">{post.excerpt}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-6 flex flex-wrap items-center gap-6">
+        <Link href="/blog/" className="pai-body no-underline hover:text-brand">
+          View all posts
+        </Link>
+        <a
+          href="mailto:info@publicai.network?subject=Public%20AI%20USA%20updates"
+          className="pai-body-secondary no-underline hover:text-brand"
+        >
+          Get updates by email
+        </a>
       </div>
-    </section>
+    </PageSection>
   );
 }

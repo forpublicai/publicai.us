@@ -1,176 +1,145 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import Button from "@/components/ds/Button";
+import PageSection from "@/components/ds/PageSection";
 
 export const metadata: Metadata = {
   title: "About | Public AI USA",
-  description: "Public AI USA — pilot-scale public AI compute in Maine.",
+  description:
+    "Public AI USA — value-added AI services for Maine communities, powered by MOCSI.",
 };
 
 export default function AboutPage() {
   return (
-    <article className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16">
-      <header className="border-b border-gray-100 pb-6">
-        <h1 className="text-3xl font-bold text-gray-900">About</h1>
-        <p className="mt-3 max-w-2xl text-gray-700">
-          Learn how the Maine pilot works, why it matters, and how you can help
-          bring public AI to your community.
+    <>
+      <PageSection>
+        <h1 className="pai-h2">About</h1>
+        <p className="pai-body mt-6 max-w-2xl">
+          Public AI USA is the launch vehicle for community-governed AI services in
+          Maine—concrete tools for citizens, municipalities, and small businesses,
+          powered by{" "}
+          <Link href="/mocsi/" className="no-underline hover:text-brand">MOCSI</Link>.
         </p>
-        <div className="mt-4 flex flex-wrap items-center gap-4">
-          <a
-            href="mailto:info@publicai.network?subject=Conversation%20about%20Maine%20public%20AI%20pilot"
-            className="inline-flex items-center rounded-md bg-brand px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand/90"
-          >
-            Start a conversation about Maine
-          </a>
+        <div className="mt-8 flex flex-wrap items-center gap-6">
+          <Button href="mailto:info@publicai.network?subject=Public%20AI%20services%20inquiry">
+            Contact us
+          </Button>
+          <Link href="/#services" className="pai-body no-underline hover:text-brand">
+            Explore services
+          </Link>
         </div>
-      </header>
+      </PageSection>
 
-      <section className="mt-8">
-        <h2 className="text-xl font-semibold text-gray-900">
-          What we&apos;re doing
-        </h2>
-        <p className="mt-4 text-gray-700">
-          We are piloting a pilot-scale public AI compute facility in Maine
-          that repurposes an underutilized site to deliver{" "}
-          <strong>affordable AI services</strong> for local Maine companies,
-          communities, and residents.
-        </p>
-        <p className="mt-4 text-gray-700">The pilot includes:</p>
-        <ul className="mt-2 list-disc space-y-1 pl-5 text-gray-700">
-          <li>A micro data center (roughly 8–16 GPUs)</li>
-          <li>Open, auditable AI models</li>
-          <li>
-            Subsidized access for Maine residents and companies through chat,
-            API, and agentic tooling
-          </li>
-          <li>
-            Prepaid, usage-capped access for local services and public-interest
-            use cases
-          </li>
-          <li>
-            <strong>Community-based governance</strong>
-          </li>
-          <li>
-            A defined sunset: evaluate, scale, or shut down after 12–18 months
-          </li>
-        </ul>
-        <div className="mt-4 flex flex-wrap items-center gap-4">
-          <a
-            href="mailto:info@publicai.network?subject=Becoming%20a%20pilot%20site"
-            className="inline-flex items-center rounded-md bg-brand px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand/90"
-          >
-            Ask about becoming a pilot site
-          </a>
+      <PageSection borderTop>
+        <div className="max-w-3xl space-y-10">
+          <section>
+            <h2 className="pai-h3">Our mission</h2>
+            <p className="pai-body mt-4">
+              Public AI is AI as public infrastructure—open, accountable, and built
+              to serve everyone. Instead of closed, proprietary systems that lock in
+              costs and obscure how data is used, we put governance and benefits in
+              the hands of communities.
+            </p>
+            <p className="pai-body mt-4">
+              In Maine, that means delivering value-added services people can use
+              today—chat, permitting help, library kiosks, and community agents—while
+              building community-owned compute through MOCSI.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="pai-h3">Our services</h2>
+            <ul className="mt-4 space-y-2 pai-body">
+              <li>
+                <a
+                  href="https://chat.publicai.co"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="no-underline hover:text-brand"
+                >
+                  Public AI Chat
+                </a>
+                — general AI for Maine residents and organizations
+              </li>
+              <li>
+                <Link href="/permitting/" className="no-underline hover:text-brand">
+                  Permitting assistant
+                </Link>
+                — permit guidance for Maine small businesses
+              </li>
+              <li>
+                <a
+                  href="https://libraries.publicai.co"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="no-underline hover:text-brand"
+                >
+                  Library kiosk
+                </a>
+                — national pilot bringing AI workstations to public libraries
+              </li>
+              <li>Community agents — autonomous tools for Maine groups (beta)</li>
+            </ul>
+            <Link href="/#services" className="pai-body mt-4 inline-block no-underline hover:text-brand">
+              View all services
+            </Link>
+          </section>
+
+          <section>
+            <h2 className="pai-h3">MOCSI</h2>
+            <p className="pai-body mt-4">
+              Every service runs on{" "}
+              <Link href="/mocsi/" className="no-underline hover:text-brand">MOCSI</Link>
+              —the Maine Open Compute Services Initiative.
+            </p>
+            <Link href="/mocsi/" className="pai-body mt-4 inline-block no-underline hover:text-brand">
+              Learn about MOCSI
+            </Link>
+          </section>
+
+          <section>
+            <h2 className="pai-h3">Team</h2>
+            <ul className="mt-4 space-y-4 pai-body">
+              <li>
+                <strong>Joshua Tan</strong> — Product and strategy lead at Public AI.
+              </li>
+              <li>
+                <strong>Matthew Victor</strong> — Technology and infrastructure attorney at Bernstein Shur.
+              </li>
+              <li>
+                <strong>Ben Polsky</strong> — Infrastructure and technology strategist at Stanford.
+              </li>
+              <li>
+                <strong>Richard Qualey</strong> — Energy and environmental law attorney at Bernstein Shur.
+              </li>
+              <li>
+                <strong>Tom Law</strong> — Founder and CEO of Oak AI, a Maine-based startup.
+              </li>
+              <li>
+                <strong>Kerem Durdag (advisor)</strong> — Builder of public and cooperative internet infrastructure.
+              </li>
+            </ul>
+          </section>
+
+          <section id="contact">
+            <h2 className="pai-h3">Contact</h2>
+            <p className="pai-body mt-4">
+              For general inquiries:{" "}
+              <a href="mailto:info@publicai.network" className="no-underline hover:text-brand">
+                info@publicai.network
+              </a>
+              .
+            </p>
+            <p className="pai-body mt-2">
+              For funders, visit{" "}
+              <Link href="/mocsi/#support" className="no-underline hover:text-brand">
+                Support MOCSI
+              </Link>
+              .
+            </p>
+          </section>
         </div>
-      </section>
-
-      <section className="mt-10">
-        <h2 className="text-xl font-semibold text-gray-900">Why it matters</h2>
-        <p className="mt-4 text-gray-700">
-          Across the United States, community resistance is increasingly
-          blocking large AI and data-center developments. At the same time,
-          municipalities often default to closed, vendor-locked AI services
-          governed outside the public interest—locking in long-term costs and
-          opaque data practices that return little value to residents.
-        </p>
-        <p className="mt-4 text-gray-700">
-          A publicly governed infrastructure pilot in Maine addresses both:{" "}
-          <strong>local or municipal ownership</strong> of a physical
-          data-center asset, paired with an explicit{" "}
-          <strong>public-services carveout</strong> so benefits accrue to
-          residents rather than distant private platforms. This is a replicable
-          pattern; Maine can lead the way.
-        </p>
-        <p className="mt-4 text-sm text-gray-700">
-          Want to brief your local officials?{" "}
-          <a
-            href="mailto:info@publicai.network?subject=Briefing%20local%20officials%20on%20Public%20AI%20USA"
-            className="font-medium text-brand hover:underline"
-          >
-            Email us for talking points
-          </a>
-          .
-        </p>
-      </section>
-
-      <section className="mt-10">
-        <h2 className="text-xl font-semibold text-gray-900">
-          Current progress
-        </h2>
-        <p className="mt-4 text-gray-700">
-          We have identified an existing brownfield infrastructure site with
-          dark fiber and an interested tenant, and are ready to break ground by
-          summer. We have engaged stakeholders connected to the Maine
-          Connectivity Authority (MCA), with active involvement from Bernstein
-          Shur and key Maine business and infrastructure leaders. A clear
-          funding pathway has been identified, combining MCA&apos;s Digital
-          Opportunity Fund with federal and state New Markets Tax Credits to
-          support community-benefit, non-hyperscale infrastructure.
-        </p>
-        <p className="mt-4 text-sm text-gray-700">
-          If you&apos;re a funder or institutional partner and want to support
-          the pilot,{" "}
-          <a
-            href="mailto:info@publicai.network?subject=Funding%20or%20co-investment%20in%20Public%20AI%20USA"
-            className="font-medium text-brand hover:underline"
-          >
-            contact us about funding or co-investment
-          </a>
-          .
-        </p>
-      </section>
-
-      <section className="mt-10">
-        <h2 className="text-xl font-semibold text-gray-900">Team</h2>
-        <ul className="mt-4 space-y-3 text-gray-700">
-          <li>
-            <strong>Joshua Tan</strong> — Product and strategy lead at Public
-            AI; background in AI systems, governance, and public-interest
-            digital infrastructure.
-          </li>
-          <li>
-            <strong>Matthew Victor</strong> — Technology and infrastructure
-            attorney at Bernstein Shur; deep experience in Maine politics,
-            public-sector projects, and complex multi-stakeholder deals.
-          </li>
-          <li>
-            <strong>Ben Polsky</strong> — Infrastructure and technology
-            strategist at Stanford; focuses on aligning new technology
-            deployments with institutional and public-sector stakeholders.
-          </li>
-          <li>
-            <strong>Richard Qualey</strong> — Energy and environmental law
-            attorney at Bernstein Shur; native of northern Maine with deep
-            regional knowledge.
-          </li>
-          <li>
-            <strong>Tom Law</strong> — Founder and CEO of Oak AI, a Maine-based
-            startup focused on applied AI systems.
-          </li>
-          <li>
-            <strong>Kerem Durdag (advisor)</strong> — Longtime builder of public
-            and cooperative internet infrastructure; former CEO of a Maine-based
-            B Corp delivering public internet services.
-          </li>
-        </ul>
-      </section>
-
-      <section className="mt-10" id="contact">
-        <h2 className="text-xl font-semibold text-gray-900">Contact</h2>
-        <p className="mt-4 text-gray-700">
-          For general inquiries:{" "}
-          <a
-            href="mailto:info@publicai.network"
-            className="font-medium text-brand hover:underline"
-          >
-            info@publicai.network
-          </a>
-          .
-        </p>
-        <p className="mt-2 text-gray-700">
-          For funders and investment inquiries, please use the same address with
-          the subject line “Investor inquiry”.
-        </p>
-      </section>
-    </article>
+      </PageSection>
+    </>
   );
 }
