@@ -1,0 +1,3 @@
+[submodule "vendor/design-system"]
+	path = vendor/design-system
+	url = https://github.com/forpublicai/design-system.git
