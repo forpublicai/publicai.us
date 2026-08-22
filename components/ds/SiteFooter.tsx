@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function SiteFooter() {
   return (
     <footer className="pai-hairline-top bg-white">
@@ -19,9 +21,9 @@ export default function SiteFooter() {
             >
               Request access
             </a>
-            <a href="mailto:hello@publicai.co" className="pai-btn-label no-underline hover:text-brand">
+            <Link href="/funders/" className="pai-btn-label no-underline hover:text-brand">
               Investors
-            </a>
+            </Link>
           </div>
         </div>
       </div>

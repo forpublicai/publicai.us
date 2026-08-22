@@ -16,17 +16,10 @@ export default function AboutPage() {
       <PageSection>
         <h1 className="pai-h2">About</h1>
         <p className="pai-body mt-2 max-w-2xl">
-          Public AI USA is the launch vehicle for community-governed AI services in
-          Maine: concrete tools for citizens, municipalities, and small businesses,
+          Public AI USA is the launch vehicle and eventual portal for community-governed AI services in Maine and beyond: concrete tools for citizens, municipalities, and small businesses across the country,
           powered by{" "}
           <Link href="/#mocsi" className="hover:text-brand">MOCSI</Link>.
         </p>
-        <div className="mt-3 flex flex-wrap items-center gap-2">
-          <Button href="mailto:hello@publicai.co">Contact us</Button>
-          <Link href="/#services" className="pai-body hover:text-brand">
-            Explore services
-          </Link>
-        </div>
       </PageSection>
 
       <PageSection borderTop>
@@ -34,66 +27,14 @@ export default function AboutPage() {
           <section>
             <h2 className="pai-h3">Our mission</h2>
             <p className="pai-body mt-2">
-              Public AI is AI as public infrastructure: open, accountable, and built
-              to serve everyone. Instead of closed, proprietary systems that lock in
-              costs and obscure how data is used, we put governance and benefits in
-              the hands of communities.
+              Public AI is AI as public infrastructure: think highways, water, electricity, libraries, and the internet. It's open, accountable, and built
+              to serve everyone. We're a group of people who believe in public AI, and working to make it happen. Take a look at our sister projects including the <Link href="https://publicai.co" className="hover:text-brand">Public AI Inference Utility</Link>, <Link href="https://publicai.network" className="hover:text-brand">Public AI Network</Link>, <Link href="https://publicai.ch" className="hover:text-brand">Public AI Switzerland</Link>, and <Link href="https://aipotluck.org" className="hover:text-brand">AI Potluck</Link>.
             </p>
             <p className="pai-body mt-2">
-              In Maine, that means delivering value-added services people can use
-              today: chat, aquaculture licensing help, library kiosks, and community
-              agents, while building community-owned compute through MOCSI.
+              For Maine, we deliver value-added services that people can use
+              today: chat, permitting help, AI services for library patrons, and community
+              agents, all served through MOCSI.
             </p>
-          </section>
-
-          <section>
-            <h2 className="pai-h3">Our services</h2>
-            <ul className="mt-2 space-y-1 pai-body">
-              <li>
-                <a
-                  href="https://chat.publicai.co"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-brand"
-                >
-                  Public AI Chat
-                </a>
-                : general AI for Maine residents and organizations
-              </li>
-              <li>
-                <Link href="/aquaculture/" className="hover:text-brand">
-                  Public AI Aquaculture
-                </Link>
-                : DMR license guidance, piloting in Van Buren, Maine
-              </li>
-              <li>
-                <a
-                  href="https://libraries.publicai.co"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-brand"
-                >
-                  Library kiosk
-                </a>
-                : pilot bringing AI workstations to public libraries
-              </li>
-              <li>Community agents: autonomous tools for Maine groups (beta)</li>
-            </ul>
-            <Link href="/#services" className="pai-body mt-2 inline-block hover:text-brand">
-              View all services
-            </Link>
-          </section>
-
-          <section>
-            <h2 className="pai-h3">MOCSI</h2>
-            <p className="pai-body mt-2">
-              Every service runs on{" "}
-              <Link href="/#mocsi" className="hover:text-brand">MOCSI</Link>
-              , the Maine Open Compute Services Initiative.
-            </p>
-            <Link href="/#mocsi" className="pai-body mt-2 inline-block hover:text-brand">
-              Learn about MOCSI
-            </Link>
           </section>
 
           <section>
@@ -112,7 +53,7 @@ export default function AboutPage() {
             </p>
             <p className="pai-body mt-1">
               For funders, visit{" "}
-              <Link href="/#support" className="hover:text-brand">
+              <Link href="/funders/" className="hover:text-brand">
                 Support MOCSI
               </Link>
               .

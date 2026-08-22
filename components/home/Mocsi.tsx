@@ -125,7 +125,7 @@ export default function Mocsi() {
         Shur and key Maine business leaders.
       </p>
 
-      <div id="support" className="mt-4 flex flex-wrap items-center gap-3">
+      <div className="mt-4 flex flex-wrap items-center gap-3">
         <Button href="mailto:hello@publicai.co">Contact us</Button>
       </div>
     </PageSection>

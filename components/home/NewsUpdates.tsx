@@ -4,7 +4,7 @@ import { news } from "@/lib/news";
 
 export default function NewsUpdates() {
   return (
-    <PageSection borderTop>
+    <PageSection id="news" borderTop>
       <h2 className="pai-h3">News & updates</h2>
       <div className="mt-3 max-w-2xl">
         {news.map((item) => (
