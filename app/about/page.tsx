@@ -28,12 +28,10 @@ export default function AboutPage() {
             <h2 className="pai-h3">Our mission</h2>
             <p className="pai-body mt-2">
               Public AI is AI as public infrastructure: think highways, water, electricity, libraries, and the internet. It's open, accountable, and built
-              to serve everyone. We're a group of people who believe in public AI, and working to make it happen. Take a look at our sister projects including the <Link href="https://publicai.co" className="hover:text-brand">Public AI Inference Utility</Link>, <Link href="https://publicai.network" className="hover:text-brand">Public AI Network</Link>, <Link href="https://publicai.ch" className="hover:text-brand">Public AI Switzerland</Link>, and <Link href="https://aipotluck.org" className="hover:text-brand">AI Potluck</Link>.
+              to serve everyone. We're a group of people who believe in public AI and are working to make it happen. Take a look at our sister projects including the <Link href="https://publicai.co" className="hover:text-brand">Public AI Inference Utility</Link>, <Link href="https://publicai.network" className="hover:text-brand">Public AI Network</Link>, <Link href="https://publicai.ch" className="hover:text-brand">Public AI Switzerland</Link>, and <Link href="https://aipotluck.org" className="hover:text-brand">AI Potluck</Link>.
             </p>
             <p className="pai-body mt-2">
-              For Maine, we deliver value-added services that people can use
-              today: chat, permitting help, AI services for library patrons, and community
-              agents, all served through MOCSI.
+              For Mainers, we also provide value-added services on top of the raw inference, for example chat, a permitting assistant for small businesses, kiosks for public libraries, and community agents for local governments. All served by MOCSI.
             </p>
           </section>
 

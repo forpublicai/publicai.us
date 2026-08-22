@@ -12,7 +12,7 @@ export const news: NewsItem[] = [
     parts: [
       "We brought on ",
       { text: "Fletcher Kittredge", href: "https://kittredge.com/" },
-      " as fractional CEO, thanks to support from the Co-Lab Fund (part of the Pro-Human AI Coalition), with a plan to write a forkable recipe for any city or state that wants to try what we're doing.",
+      " as fractional CEO, with a plan to write a forkable recipe for any city or state that wants to try what we're doing.",
     ],
   },
   {

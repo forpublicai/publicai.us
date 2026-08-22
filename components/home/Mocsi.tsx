@@ -34,7 +34,7 @@ export default function Mocsi() {
 
       <h3 className="pai-section mt-4">What</h3>
       <p className="pai-body mt-2 max-w-2xl">
-        MOCSI is a planned community-scale data center (8-16 GPUs) in Maine with
+        MOCSI is a planned community-scale data center (8-16 GPUs, &lt;$1M capex) in Maine with
         local ownership, an explicit public interest focus, and an open, auditable service stack. The upshot: affordable compute for Maine citizens and businesses, so that benefits accrue to
         Mainers instead of distant tech companies.
       </p>

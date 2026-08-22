@@ -1,3 +1,4 @@
+import Image from "next/image";
 import people from "@/lib/people.json";
 
 function initials(name: string): string {
@@ -17,17 +18,35 @@ function LinkedInIcon() {
   );
 }
 
+function PersonPhoto({ name, photo }: { name: string; photo: string | null }) {
+  if (photo) {
+    return (
+      <Image
+        src={photo}
+        alt=""
+        width={40}
+        height={40}
+        className="h-10 w-10 shrink-0 object-cover object-top"
+      />
+    );
+  }
+
+  return (
+    <div
+      aria-hidden="true"
+      className="pai-mono flex h-10 w-10 shrink-0 items-center justify-center bg-subtle text-[11px]"
+    >
+      {initials(name)}
+    </div>
+  );
+}
+
 export default function PeopleSection() {
   return (
     <ul className="mt-2">
       {people.map((person) => (
         <li key={person.id} className="pai-hairline-top flex items-start gap-3 py-3">
-          <div
-            aria-hidden="true"
-            className="pai-mono flex h-10 w-10 shrink-0 items-center justify-center bg-subtle text-[11px]"
-          >
-            {initials(person.name)}
-          </div>
+          <PersonPhoto name={person.name} photo={person.photo} />
           <div className="min-w-0 flex-1">
             <p className="pai-body">
               <strong>{person.name}</strong>, {person.role}

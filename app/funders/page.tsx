@@ -27,8 +27,9 @@ export default function FundersPage() {
               We&apos;ve identified a brownfield site in Maine with dark fiber
               and an interested tenant, and held two stakeholder workshops in
               2026 (June and August) covering site, structure, and financing.
-              The pilot itself is scoped small: roughly 8–16 GPUs, with a
-              defined 12–18 month sunset to evaluate, scale, or shut down.
+              The pilot itself is scoped small: roughly 8–16 GPUs (less than
+              $1M capex), with a defined 12–18 month sunset to evaluate,
+              scale, or shut down.
             </p>
           </section>
 
