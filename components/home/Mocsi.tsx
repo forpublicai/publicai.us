@@ -129,19 +129,23 @@ export default function Mocsi() {
                     Currently:{" "}
                     {liveServices.map((s, i) => (
                       <span key={s.id}>
-                        {s.external ? (
-                          <a
-                            href={s.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:text-brand"
-                          >
-                            {s.name}
-                          </a>
+                        {s.href ? (
+                          s.external ? (
+                            <a
+                              href={s.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="hover:text-brand"
+                            >
+                              {s.name}
+                            </a>
+                          ) : (
+                            <Link href={s.href} className="hover:text-brand">
+                              {s.name}
+                            </Link>
+                          )
                         ) : (
-                          <Link href={s.href} className="hover:text-brand">
-                            {s.name}
-                          </Link>
+                          s.name
                         )}
                         {s.status === "beta" ? " (beta)" : ""}
                         {i < liveServices.length - 1 ? ", " : "."}

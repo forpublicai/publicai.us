@@ -7,7 +7,7 @@ export interface Service {
   audience: string;
   description: string;
   examples?: string[];
-  href: string;
+  href?: string;
   external?: boolean;
   cta: string;
 }
@@ -31,7 +31,8 @@ export const services: Service[] = [
     audience: "Aquaculture operators in Van Buren, Maine",
     description:
       "Tells you which Maine DMR aquaculture license you need based on your species, equipment, site size, and lease duration, plus DMR regulatory Q&A.",
-    href: "/aquaculture/",
+    href: "https://aquaculture.publicai.co",
+    external: true,
     cta: "Get started",
   },
   {
@@ -65,7 +66,6 @@ export const services: Service[] = [
     examples: [
       "Early examples we're testing: town hall summaries, grant deadline tracking",
     ],
-    href: "mailto:hello@publicai.co",
     cta: "Propose an agent",
   },
 ];
