@@ -34,19 +34,25 @@ export default function Mocsi() {
 
       <h3 className="pai-section mt-4">What</h3>
       <p className="pai-body mt-2 max-w-2xl">
-        MOCSI is a planned community-scale data center (8-16 GPUs, &lt;$1M capex) in Maine with
-        local ownership, an explicit public interest focus, and an open, auditable service stack. The upshot: affordable compute for Maine citizens and businesses, so that benefits accrue to
-        Mainers instead of distant tech companies.
+        MOCSI is a planned community-scale data center (8-16 GPUs, &lt;$1M
+        capex) in Maine with local ownership, an explicit public interest
+        focus, and an open, auditable service stack.
       </p>
 
       <h3 className="pai-section mt-4">Why</h3>
       <p className="pai-body-secondary mt-2 max-w-2xl">
-        Imagine if AI was 50% cheaper across the board in Maine versus the
-        rest of the country. That's possible people own their own compute. These days, data centers are the least popular things in America. We turn data center backlash into affordable compute.
+        Affordable compute for Maine citizens and businesses, so that
+        benefits accrue to Mainers instead of distant tech companies.
+        Imagine if AI was both 50% cheaper in Maine and 50% better at the
+        stuff that we care about. That&apos;s possible when people own their
+        own compute.
       </p>
 
       <h3 className="pai-section mt-4">How</h3>
-      <p className="pai-body-secondary mt-2 max-w-2xl">This has been done before. Maine has a history of {" "}
+      <p className="pai-body-secondary mt-2 max-w-2xl">
+        Right now, data centers are among the least popular things in
+        America. We turn that data center backlash into affordable compute.
+        This has been done before. Maine has a history of{" "}
         <a
           href="https://www.houlton-maine.com/departments/houlton-water-company/"
           target="_blank"
@@ -56,7 +62,12 @@ export default function Mocsi() {
           public
         </a>{" "}
         and{" "}
-        <a href="https://www.emec.com/" target="_blank" rel="noopener noreferrer" className="hover:text-brand">
+        <a
+          href="https://www.emec.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-brand"
+        >
           cooperative
         </a>{" "}
         infrastructure. We&apos;re inspired by{" "}
@@ -69,18 +80,33 @@ export default function Mocsi() {
           town-owned broadband
         </a>
         ,{" "}
-        <a href="https://www.ecfiber.net/about-us/" target="_blank" rel="noopener noreferrer" className="hover:text-brand">
+        <a
+          href="https://www.ecfiber.net/about-us/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-brand"
+        >
           cooperative ISPs
         </a>
         , and other public AI projects like{" "}
-        <a href="https://www.empireai.edu/" target="_blank" rel="noopener noreferrer" className="hover:text-brand">
+        <a
+          href="https://www.empireai.edu/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-brand"
+        >
           Empire AI
         </a>{" "}
         and{" "}
-        <a href="https://californiacompute.org/" target="_blank" rel="noopener noreferrer" className="hover:text-brand">
+        <a
+          href="https://californiacompute.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-brand"
+        >
           Calcompute
         </a>
-        . And we plan to service inference in a few ways:
+        . And we plan to serve inference in a few ways:
       </p>
 
 
