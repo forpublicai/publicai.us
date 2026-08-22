@@ -19,10 +19,11 @@ Logos and favicon are synced from the design system into `public/`.
 ## Site structure
 
 - `/` — Homepage with MOCSI story, service divisions table, and news & updates
-- `/aquaculture/` — Public AI Aquaculture, DMR license guidance piloting in Van Buren, Maine
 - `/about/` — Mission, people, and contact
+- `/funders/` — Co-investment overview for funders supporting MOCSI
+- `/aquaculture/` — Redirects to [aquaculture.publicai.co](https://aquaculture.publicai.co)
 
-External services: [chat.publicai.co](https://chat.publicai.co), [libraries.publicai.co](https://libraries.publicai.co)
+External services: [chat.publicai.co](https://chat.publicai.co), [libraries.publicai.co](https://libraries.publicai.co), [aquaculture.publicai.co](https://aquaculture.publicai.co)
 
 ## Develop
 
@@ -53,4 +54,4 @@ For CI/deploy hosts, ensure submodules are initialized (e.g. `git submodule upda
 - `lib/services.ts` — Live/beta/coming service data, listed under the MOCSI service divisions table
 - `lib/people.json` — People shown in the About page's People section
 - `lib/news.ts` — News & updates entries shown on the homepage
-- `public/` — Static assets (logo SVGs, favicon, CNAME)
+- `public/` — Static assets (logo SVGs, favicon, CNAME, people photos)

@@ -69,9 +69,3 @@ export const services: Service[] = [
     cta: "Propose an agent",
   },
 ];
-
-export const statusLabels: Record<ServiceStatus, string> = {
-  live: "Live",
-  beta: "Beta",
-  coming: "Coming soon",
-};

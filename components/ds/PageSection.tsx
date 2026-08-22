@@ -5,8 +5,7 @@ type PageSectionProps = {
   id?: string;
   className?: string;
   borderTop?: boolean;
-  borderBottom?: boolean;
-  background?: "page" | "subtle" | "canvas";
+  background?: "page" | "subtle";
 };
 
 export default function PageSection({
@@ -14,15 +13,9 @@ export default function PageSection({
   id,
   className = "",
   borderTop = false,
-  borderBottom = false,
   background = "page",
 }: PageSectionProps) {
-  const bgClass =
-    background === "subtle"
-      ? "bg-subtle"
-      : background === "canvas"
-        ? "bg-parchment"
-        : "bg-white";
+  const bgClass = background === "subtle" ? "bg-subtle" : "bg-white";
 
   return (
     <section
@@ -31,7 +24,6 @@ export default function PageSection({
         "py-6 sm:py-8",
         bgClass,
         borderTop ? "pai-hairline-top" : "",
-        borderBottom ? "pai-hairline-bottom" : "",
         className,
       ]
         .filter(Boolean)

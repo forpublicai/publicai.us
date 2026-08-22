@@ -40,6 +40,16 @@
     "linkLabel": "LinkedIn"
   },
   {
+    "id": "joe-oliva",
+    "name": "Joe Oliva",
+    "role": "Community Lead",
+    "oneLineBio": "Outreach and Communications Director at GrowSmart Maine.",
+    "bio": "Joe is Outreach and Communications Director at GrowSmart Maine, where he leads advocacy outreach, events, and communications for the statewide smart-growth nonprofit. He previously led outreach at the Maine Broadband Coalition and is a Colby College graduate.",
+    "photo": "/people/joe-oliva.jpg",
+    "linkUrl": "https://www.linkedin.com/in/joe-oliva-3a7378174",
+    "linkLabel": "LinkedIn"
+  },
+  {
     "id": "tom-law",
     "name": "Tom Law",
     "role": "Advisor, Infrastructure",

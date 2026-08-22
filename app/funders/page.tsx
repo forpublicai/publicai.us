@@ -36,9 +36,7 @@ export default function FundersPage() {
           <section>
             <h2 className="pai-h3">Team</h2>
             <p className="pai-body mt-2">
-              Fletcher Kittredge joined as fractional CEO in August 2026.
-              Beyond that it&apos;s a product lead, counsel, a few advisors,
-              and one intern. See{" "}
+              We have a small but very capable team. Fletcher Kittredge took over as fractional CEO in August 2026, joining Matthew Victor, Joshua Tan, Joe Oliva, and Ben Polsky on the core team. See{" "}
               <Link href="/about/" className="hover:text-brand">
                 who&apos;s involved
               </Link>

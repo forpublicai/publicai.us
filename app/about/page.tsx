@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Button from "@/components/ds/Button";
 import PageSection from "@/components/ds/PageSection";
 import PeopleSection from "@/components/ds/PeopleSection";
 
