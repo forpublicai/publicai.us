@@ -32,7 +32,13 @@ export const news: NewsItem[] = [
   {
     date: "2026-06-25",
     parts: [
-      "We hosted our first stakeholder workshop at the Roux Institute in downtown Portland. Attendees included state legislators, prominent entrepreneurs, civil society, and representatives from multiple state agencies.",
+      "We hosted our first stakeholder workshop at the Roux Institute in downtown Portland. Attendees included state legislators, prominent entrepreneurs, civil society, representatives from multiple state agencies including the Maine Connectivity Authority, and Bernstein Shur and other key Maine business leaders.",
+    ],
+  },
+  {
+    date: "2026-05-01",
+    parts: [
+      "We visited candidate sites and reviewed financing across Lincoln Mill in Brunswick, Loring Air Force Base, and CENTRA on Cumberland St. in Portland.",
     ],
   },
   {
@@ -47,12 +53,6 @@ export const news: NewsItem[] = [
     ],
   },
   {
-    date: "2026-01-12",
-    parts: [
-      "Josh joked to a table of funders, “Who wants to help me build the least popular thing in America?” To his surprise, three hands immediately shoot up.",
-    ],
-  },
-  {
     date: "2025-12-16",
     parts: [
       "The Lewiston City Council unanimously voted down a proposed AI data center at Bates Mill after public outcry. ",
@@ -61,6 +61,12 @@ export const news: NewsItem[] = [
         href: "https://www.pressherald.com/2025/12/16/lewiston-votes-down-ai-data-center-project-after-public-outcry/",
       },
       ".",
+    ],
+  },
+  {
+    date: "2025-12-15",
+    parts: [
+      "Josh joked to a table of funders, “Who wants to help me build the least popular thing in America?” To his surprise, three hands immediately shot up.",
     ],
   },
   {

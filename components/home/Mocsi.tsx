@@ -34,24 +34,32 @@ export default function Mocsi() {
 
       <h3 className="pai-section mt-4">What</h3>
       <p className="pai-body mt-2 max-w-2xl">
-        Community-governed open compute in Maine. Local ownership of the
-        physical asset, an explicit public-services carveout, and open,
-        auditable AI models power every service on this site, so benefits
-        accrue to Mainers instead of distant hyperscalers.
+        MOCSI is a planned community-scale data center (8-16 GPUs) in Maine with
+        local ownership, an explicit public interest focus, and an open, auditable service stack. The upshot: affordable compute for Maine citizens and businesses, so that benefits accrue to
+        Mainers instead of distant tech companies.
       </p>
 
       <h3 className="pai-section mt-4">Why</h3>
       <p className="pai-body-secondary mt-2 max-w-2xl">
-        Maine has a history of public and cooperative infrastructure. We&apos;re
-        inspired by{" "}
-        <a href="https://www.empireai.edu/" target="_blank" rel="noopener noreferrer" className="hover:text-brand">
-          Empire AI
-        </a>
-        ,{" "}
-        <a href="https://californiacompute.org/" target="_blank" rel="noopener noreferrer" className="hover:text-brand">
-          CalCompute
-        </a>
-        ,{" "}
+        Imagine if AI was 50% cheaper across the board in Maine versus the
+        rest of the country. That's possible people own their own compute. These days, data centers are the least popular things in America. We turn data center backlash into affordable compute.
+      </p>
+
+      <h3 className="pai-section mt-4">How</h3>
+      <p className="pai-body-secondary mt-2 max-w-2xl">This has been done before. Maine has a history of {" "}
+        <a
+          href="https://www.houlton-maine.com/departments/houlton-water-company/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-brand"
+        >
+          public
+        </a>{" "}
+        and{" "}
+        <a href="https://www.emec.com/" target="_blank" rel="noopener noreferrer" className="hover:text-brand">
+          cooperative
+        </a>{" "}
+        infrastructure. We&apos;re inspired by{" "}
         <a
           href="https://townofislesboro.com/committees/islesboro-municipal-broadband/"
           target="_blank"
@@ -60,14 +68,22 @@ export default function Mocsi() {
         >
           town-owned broadband
         </a>
-        , and{" "}
-        <a href="https://arrowheadcoop.com/internet/" target="_blank" rel="noopener noreferrer" className="hover:text-brand">
+        ,{" "}
+        <a href="https://www.ecfiber.net/about-us/" target="_blank" rel="noopener noreferrer" className="hover:text-brand">
           cooperative ISPs
         </a>
-        .
+        , and other public AI projects like{" "}
+        <a href="https://www.empireai.edu/" target="_blank" rel="noopener noreferrer" className="hover:text-brand">
+          Empire AI
+        </a>{" "}
+        and{" "}
+        <a href="https://californiacompute.org/" target="_blank" rel="noopener noreferrer" className="hover:text-brand">
+          Calcompute
+        </a>
+        . And we plan to service inference in a few ways:
       </p>
 
-      <h3 className="pai-section mt-4">How</h3>
+
       <table id="services" className="mt-2 w-full max-w-3xl border-collapse text-left pai-body">
         <thead>
           <tr className="pai-hairline-bottom">
@@ -112,19 +128,6 @@ export default function Mocsi() {
           ))}
         </tbody>
       </table>
-
-      <p className="pai-body-secondary mt-4 max-w-2xl">
-        The pilot: a micro data center (roughly 8–16 GPUs) at an existing
-        brownfield infrastructure site with dark fiber and an interested
-        tenant, operating under community-based governance with a defined
-        sunset: evaluate, scale, or shut down after 12–18 months.
-      </p>
-      <p className="pai-body-secondary mt-2 max-w-2xl">
-        We have identified the site and engaged stakeholders connected to the
-        Maine Connectivity Authority, with active involvement from Bernstein
-        Shur and key Maine business leaders.
-      </p>
-
       <div className="mt-4 flex flex-wrap items-center gap-3">
         <Button href="mailto:hello@publicai.co">Contact us</Button>
       </div>
