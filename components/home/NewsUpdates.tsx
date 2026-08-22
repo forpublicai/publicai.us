@@ -1,3 +1,4 @@
+import Link from "next/link";
 import PageSection from "@/components/ds/PageSection";
 import { news } from "@/lib/news";
 
@@ -16,21 +17,29 @@ export default function NewsUpdates() {
               })}
             </p>
             <p className="pai-body mt-1">
-              {item.parts.map((part, i) =>
-                typeof part === "string" ? (
-                  <span key={i}>{part}</span>
-                ) : (
-                  <a
-                    key={i}
-                    href={part.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-brand"
-                  >
+              {item.parts.map((part, i) => {
+                if (typeof part === "string") {
+                  return <span key={i}>{part}</span>;
+                }
+                if (part.href.startsWith("http")) {
+                  return (
+                    <a
+                      key={i}
+                      href={part.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-brand"
+                    >
+                      {part.text}
+                    </a>
+                  );
+                }
+                return (
+                  <Link key={i} href={part.href} className="hover:text-brand">
                     {part.text}
-                  </a>
-                ),
-              )}
+                  </Link>
+                );
+              })}
             </p>
           </div>
         ))}
