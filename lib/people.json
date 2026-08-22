@@ -1,0 +1,82 @@
+[
+  {
+    "id": "joshua-tan",
+    "name": "Joshua Tan",
+    "role": "Product & Strategy Lead",
+    "oneLineBio": "Leads product and strategy for Public AI.",
+    "bio": "Joshua Tan leads product and strategy for the Public AI movement, building AI as public infrastructure. He is also a co-founder and research director at Metagov, a research lab focused on digital governance and institution design.",
+    "photo": null,
+    "linkUrl": "https://www.linkedin.com/in/joshuaztan/",
+    "linkLabel": "LinkedIn"
+  },
+  {
+    "id": "fletcher-kittredge",
+    "name": "Fletcher Kittredge",
+    "role": "Fractional CEO",
+    "oneLineBio": "Founder of GWI, Maine's B Corp internet provider.",
+    "bio": "Fletcher Kittredge founded and led GWI (Great Works Internet) in Biddeford for three decades, building it into Maine's first B Corp-certified telecom carrier. He also chairs the ConnectME Authority Advisory Board and serves on the board of the Maine Center for Public Interest Reporting.",
+    "photo": null,
+    "linkUrl": "https://www.linkedin.com/in/fletcher-kittredge-21200911/",
+    "linkLabel": "LinkedIn"
+  },
+  {
+    "id": "matthew-victor",
+    "name": "Matthew Victor",
+    "role": "Counsel, Technology & Infrastructure",
+    "oneLineBio": "Technology transactions attorney at Bernstein Shur.",
+    "bio": "Matthew Victor is an associate at Bernstein Shur who counsels startups and early-stage companies on technology licensing, corporate transactions, and data privacy. He previously worked as a technology consultant and co-founded a nonprofit before practicing law.",
+    "photo": null,
+    "linkUrl": "https://www.linkedin.com/in/matthew-victor-684b9459",
+    "linkLabel": "LinkedIn"
+  },
+  {
+    "id": "richard-qualey",
+    "name": "Richard Qualey",
+    "role": "Counsel, Energy & Environmental Law",
+    "oneLineBio": "Energy and environmental law attorney at Bernstein Shur.",
+    "bio": "Richard Qualey is an energy and environmental attorney at Bernstein Shur who pairs a chemical engineering background with legal counsel on land use, environmental compliance, and regulatory matters. He previously clerked for the Maine Supreme Judicial Court.",
+    "photo": null,
+    "linkUrl": "https://www.linkedin.com/in/richard-qualey-753a90254/",
+    "linkLabel": "LinkedIn"
+  },
+  {
+    "id": "ben-polsky",
+    "name": "Ben Polsky",
+    "role": "Advisor, Infrastructure Strategy",
+    "oneLineBio": "Data center and broadband infrastructure strategist.",
+    "bio": "Ben Polsky is Director of Partnership and Business Development at Vivacity Infrastructure Group, focused on data center and utility partnerships. He previously managed California's $3.87 billion open-access middle-mile broadband program and is an International Strategy Fellow at the Special Competitive Studies Project.",
+    "photo": null,
+    "linkUrl": "https://www.linkedin.com/in/ben-polsky-62b549b1/",
+    "linkLabel": "LinkedIn"
+  },
+  {
+    "id": "tom-law",
+    "name": "Tom Law",
+    "role": "Founder & CEO, Oak AI",
+    "oneLineBio": "Founder and CEO of Oak AI, a Maine-based applied-AI startup.",
+    "bio": "Tom Law founded Oak AI in Portland to build AI tools that give people more agency and privacy online. He previously spent over a decade in engineering leadership roles across wireless, energy, and robotics.",
+    "photo": null,
+    "linkUrl": "https://www.linkedin.com/in/lawtomlaw/",
+    "linkLabel": "LinkedIn"
+  },
+  {
+    "id": "kerem-durdag",
+    "name": "Kerem Durdag",
+    "role": "Advisor",
+    "oneLineBio": "President & COO of Great Works Internet (GWI).",
+    "bio": "Kerem Durdag is President and COO of GWI, Maine's B Corp-certified internet provider, where he has led rural broadband buildouts across the state. He also helped launch the Indus Fund, providing below-market loans to Maine's immigrant business community.",
+    "photo": null,
+    "linkUrl": "https://www.linkedin.com/in/kerem-durdag-41ab08/",
+    "linkLabel": "LinkedIn"
+  },
+  {
+    "id": "sam-merkatz",
+    "name": "Sam Merkatz",
+    "role": "Intern",
+    "oneLineBio": "Studying government and science, technology & society at Colby College.",
+    "bio": "Sam Merkatz is a Colby College student studying government and science, technology, and society, with a focus on tech policy and regulation. He previously interned as a Virtual Student Federal Service fellow at the U.S. Department of State and won Colby's 2025 Government Department Prize.",
+    "photo": null,
+    "linkUrl": "https://www.linkedin.com/in/samuel-merkatz/",
+    "linkLabel": "LinkedIn"
+  }
+]

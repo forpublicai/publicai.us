@@ -21,7 +21,9 @@
 
   a {
     color: var(--pai-black);
+    text-decoration-line: underline;
     text-decoration-color: var(--pai-red);
+    text-underline-offset: 2px;
   }
 
   a:hover {
@@ -32,58 +34,49 @@
 @layer components {
   .pai-container {
     width: 100%;
-    max-width: var(--content-max-width);
+    max-width: 720px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-  }
-
-  @media (min-width: 640px) {
-    .pai-container {
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .pai-display {
     font-family: var(--font-sans);
-    font-weight: var(--type-display-weight);
-    font-size: clamp(48px, 8vw, var(--type-h2-size));
-    line-height: var(--type-display-lh);
-    letter-spacing: var(--type-display-ls);
+    font-weight: 600;
+    font-size: clamp(24px, 4vw, 30px);
+    line-height: 1.2;
     color: var(--text-primary);
   }
 
   .pai-h2 {
     font-family: var(--font-sans);
-    font-weight: var(--type-h2-weight);
-    font-size: clamp(40px, 6vw, var(--type-h2-size));
-    line-height: 1.1;
-    letter-spacing: -0.03em;
+    font-weight: 600;
+    font-size: clamp(20px, 3vw, 24px);
+    line-height: 1.25;
     color: var(--text-primary);
   }
 
   .pai-h3 {
-    font-family: var(--font-headline);
-    font-weight: var(--type-h3-weight);
-    font-size: clamp(28px, 4vw, var(--type-h3-size));
-    line-height: 1.15;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.3;
     color: var(--text-primary);
   }
 
   .pai-section {
-    font-family: var(--font-ui);
-    font-weight: var(--type-section-weight);
-    font-size: var(--type-section-size);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 15px;
     line-height: 1.3;
     color: var(--text-primary);
   }
 
   .pai-ui {
-    font-family: var(--font-ui);
-    font-weight: var(--type-ui-weight);
-    font-size: var(--type-ui-size);
+    font-family: var(--font-sans);
+    font-weight: var(--type-body-weight);
+    font-size: var(--type-body-size);
     line-height: 1.4;
     color: var(--text-primary);
   }

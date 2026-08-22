@@ -1,6 +1,6 @@
 "use client";
 
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, CSSProperties, ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { useState } from "react";
 
 type ButtonLinkoutProps = {

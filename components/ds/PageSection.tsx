@@ -28,7 +28,7 @@ export default function PageSection({
     <section
       id={id}
       className={[
-        "py-20 sm:py-[120px]",
+        "py-6 sm:py-8",
         bgClass,
         borderTop ? "pai-hairline-top" : "",
         borderBottom ? "pai-hairline-bottom" : "",

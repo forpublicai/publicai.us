@@ -6,7 +6,7 @@ import SiteFooter from "@/components/ds/SiteFooter";
 export const metadata: Metadata = {
   title: "Public AI USA",
   description:
-    "Public AI services for Maine communities and municipalities—powered by MOCSI, Maine Open Compute Services Initiative.",
+    "Public AI services for Maine communities and municipalities, powered by MOCSI, Maine Open Compute Services Initiative.",
   icons: {
     icon: "/favicon.ico",
   },

@@ -10,7 +10,6 @@ export interface Service {
   href: string;
   external?: boolean;
   cta: string;
-  mailtoSubject?: string;
 }
 
 export const services: Service[] = [
@@ -20,28 +19,28 @@ export const services: Service[] = [
     status: "live",
     audience: "Maine residents & organizations",
     description:
-      "A general-purpose AI chat for research, learning, and everyday questions—subsidized for Maine users.",
+      "A general-purpose AI chat for research, learning, and everyday questions, subsidized for Maine users.",
     href: "https://chat.publicai.co",
     external: true,
     cta: "Open chat",
   },
   {
-    id: "permitting",
-    name: "Permitting assistant",
+    id: "aquaculture",
+    name: "Public AI Aquaculture",
     status: "live",
-    audience: "Maine small businesses",
+    audience: "Aquaculture operators in Van Buren, Maine",
     description:
-      "Plain-language guidance on government permits and municipal requirements—so you know what you need before you apply.",
-    href: "/permitting/",
+      "Tells you which Maine DMR aquaculture license you need based on your species, equipment, site size, and lease duration, plus DMR regulatory Q&A.",
+    href: "/aquaculture/",
     cta: "Get started",
   },
   {
     id: "libraries",
     name: "Library kiosk",
     status: "live",
-    audience: "Public libraries (national pilot)",
+    audience: "Public libraries (pilot)",
     description:
-      "A shared Public AI workstation for libraries—chat, creative tools, and coding support for patrons in a trusted public space.",
+      "A shared Public AI workstation for libraries: chat, creative tools, and coding support for patrons in a trusted public space.",
     href: "https://libraries.publicai.co",
     external: true,
     cta: "Explore program",
@@ -52,10 +51,9 @@ export const services: Service[] = [
     status: "coming",
     audience: "Maine citizens",
     description:
-      "A statewide dialogue on AI in Maine—your direct line to the people building public AI for your community, modeled on Switzerland's national AI dialogue.",
-    href: "mailto:info@publicai.network?subject=Maine%20AI%20Dialogue",
+      "A planned dialogue on AI in Maine: your direct line to the people building public AI for your community.",
+    href: "mailto:hello@publicai.co",
     cta: "Learn more",
-    mailtoSubject: "Maine AI Dialogue",
   },
   {
     id: "agents",
@@ -63,14 +61,12 @@ export const services: Service[] = [
     status: "beta",
     audience: "Maine groups & companies",
     description:
-      "Pre-deployed agents that work autonomously on behalf of Maine organizations—no need to build your own.",
+      "Pre-deployed agents that work autonomously on behalf of Maine organizations, no need to build your own.",
     examples: [
-      "Town hall summaries — monitor and summarize public meetings",
-      "Grant monitoring — track requirements, deadlines, and reporting",
+      "Early examples we're testing: town hall summaries, grant deadline tracking",
     ],
-    href: "mailto:info@publicai.network?subject=Proposing%20a%20community%20agent",
+    href: "mailto:hello@publicai.co",
     cta: "Propose an agent",
-    mailtoSubject: "Proposing a community agent",
   },
 ];
 

@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Button from "@/components/ds/Button";
 import PageSection from "@/components/ds/PageSection";
+import PeopleSection from "@/components/ds/PeopleSection";
 
 export const metadata: Metadata = {
   title: "About | Public AI USA",
   description:
-    "Public AI USA — value-added AI services for Maine communities, powered by MOCSI.",
+    "Public AI USA provides value-added AI services for Maine communities, powered by MOCSI.",
 };
 
 export default function AboutPage() {
@@ -14,125 +15,104 @@ export default function AboutPage() {
     <>
       <PageSection>
         <h1 className="pai-h2">About</h1>
-        <p className="pai-body mt-6 max-w-2xl">
+        <p className="pai-body mt-2 max-w-2xl">
           Public AI USA is the launch vehicle for community-governed AI services in
-          Maine—concrete tools for citizens, municipalities, and small businesses,
+          Maine: concrete tools for citizens, municipalities, and small businesses,
           powered by{" "}
-          <Link href="/mocsi/" className="no-underline hover:text-brand">MOCSI</Link>.
+          <Link href="/#mocsi" className="hover:text-brand">MOCSI</Link>.
         </p>
-        <div className="mt-8 flex flex-wrap items-center gap-6">
-          <Button href="mailto:info@publicai.network?subject=Public%20AI%20services%20inquiry">
-            Contact us
-          </Button>
-          <Link href="/#services" className="pai-body no-underline hover:text-brand">
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          <Button href="mailto:hello@publicai.co">Contact us</Button>
+          <Link href="/#services" className="pai-body hover:text-brand">
             Explore services
           </Link>
         </div>
       </PageSection>
 
       <PageSection borderTop>
-        <div className="max-w-3xl space-y-10">
+        <div className="max-w-3xl space-y-4">
           <section>
             <h2 className="pai-h3">Our mission</h2>
-            <p className="pai-body mt-4">
-              Public AI is AI as public infrastructure—open, accountable, and built
+            <p className="pai-body mt-2">
+              Public AI is AI as public infrastructure: open, accountable, and built
               to serve everyone. Instead of closed, proprietary systems that lock in
               costs and obscure how data is used, we put governance and benefits in
               the hands of communities.
             </p>
-            <p className="pai-body mt-4">
+            <p className="pai-body mt-2">
               In Maine, that means delivering value-added services people can use
-              today—chat, permitting help, library kiosks, and community agents—while
-              building community-owned compute through MOCSI.
+              today: chat, aquaculture licensing help, library kiosks, and community
+              agents, while building community-owned compute through MOCSI.
             </p>
           </section>
 
           <section>
             <h2 className="pai-h3">Our services</h2>
-            <ul className="mt-4 space-y-2 pai-body">
+            <ul className="mt-2 space-y-1 pai-body">
               <li>
                 <a
                   href="https://chat.publicai.co"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="no-underline hover:text-brand"
+                  className="hover:text-brand"
                 >
                   Public AI Chat
                 </a>
-                — general AI for Maine residents and organizations
+                : general AI for Maine residents and organizations
               </li>
               <li>
-                <Link href="/permitting/" className="no-underline hover:text-brand">
-                  Permitting assistant
+                <Link href="/aquaculture/" className="hover:text-brand">
+                  Public AI Aquaculture
                 </Link>
-                — permit guidance for Maine small businesses
+                : DMR license guidance, piloting in Van Buren, Maine
               </li>
               <li>
                 <a
                   href="https://libraries.publicai.co"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="no-underline hover:text-brand"
+                  className="hover:text-brand"
                 >
                   Library kiosk
                 </a>
-                — national pilot bringing AI workstations to public libraries
+                : pilot bringing AI workstations to public libraries
               </li>
-              <li>Community agents — autonomous tools for Maine groups (beta)</li>
+              <li>Community agents: autonomous tools for Maine groups (beta)</li>
             </ul>
-            <Link href="/#services" className="pai-body mt-4 inline-block no-underline hover:text-brand">
+            <Link href="/#services" className="pai-body mt-2 inline-block hover:text-brand">
               View all services
             </Link>
           </section>
 
           <section>
             <h2 className="pai-h3">MOCSI</h2>
-            <p className="pai-body mt-4">
+            <p className="pai-body mt-2">
               Every service runs on{" "}
-              <Link href="/mocsi/" className="no-underline hover:text-brand">MOCSI</Link>
-              —the Maine Open Compute Services Initiative.
+              <Link href="/#mocsi" className="hover:text-brand">MOCSI</Link>
+              , the Maine Open Compute Services Initiative.
             </p>
-            <Link href="/mocsi/" className="pai-body mt-4 inline-block no-underline hover:text-brand">
+            <Link href="/#mocsi" className="pai-body mt-2 inline-block hover:text-brand">
               Learn about MOCSI
             </Link>
           </section>
 
           <section>
-            <h2 className="pai-h3">Team</h2>
-            <ul className="mt-4 space-y-4 pai-body">
-              <li>
-                <strong>Joshua Tan</strong> — Product and strategy lead at Public AI.
-              </li>
-              <li>
-                <strong>Matthew Victor</strong> — Technology and infrastructure attorney at Bernstein Shur.
-              </li>
-              <li>
-                <strong>Ben Polsky</strong> — Infrastructure and technology strategist at Stanford.
-              </li>
-              <li>
-                <strong>Richard Qualey</strong> — Energy and environmental law attorney at Bernstein Shur.
-              </li>
-              <li>
-                <strong>Tom Law</strong> — Founder and CEO of Oak AI, a Maine-based startup.
-              </li>
-              <li>
-                <strong>Kerem Durdag (advisor)</strong> — Builder of public and cooperative internet infrastructure.
-              </li>
-            </ul>
+            <h2 className="pai-h3">People</h2>
+            <PeopleSection />
           </section>
 
           <section id="contact">
             <h2 className="pai-h3">Contact</h2>
-            <p className="pai-body mt-4">
+            <p className="pai-body mt-2">
               For general inquiries:{" "}
-              <a href="mailto:info@publicai.network" className="no-underline hover:text-brand">
-                info@publicai.network
+              <a href="mailto:hello@publicai.co" className="hover:text-brand">
+                hello@publicai.co
               </a>
               .
             </p>
-            <p className="pai-body mt-2">
+            <p className="pai-body mt-1">
               For funders, visit{" "}
-              <Link href="/mocsi/#support" className="no-underline hover:text-brand">
+              <Link href="/#support" className="hover:text-brand">
                 Support MOCSI
               </Link>
               .

@@ -2,12 +2,10 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import Button from "./Button";
 import { Logo } from "./Logo";
 
 const navItems = [
-  { label: "Services", href: "/#services" },
-  { label: "MOCSI", href: "/mocsi/" },
+  { label: "MOCSI", href: "/#mocsi" },
   { label: "About", href: "/about/" },
 ];
 
@@ -16,11 +14,11 @@ export default function SiteHeader() {
 
   return (
     <header className="bg-white">
-      <div className="pai-container hidden items-center justify-between pb-20 pt-5 md:flex">
+      <div className="pai-container hidden items-center justify-between py-3 md:flex">
         <Link href="/" className="shrink-0">
-          <Logo height={48} alt="Public AI USA" />
+          <Logo height={32} alt="Public AI USA" />
         </Link>
-        <nav className="flex items-center gap-8">
+        <nav className="flex items-center gap-3">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -30,18 +28,17 @@ export default function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <Button href="https://chat.publicai.co">Try chat</Button>
         </nav>
       </div>
 
       <div className="md:hidden">
         <div
-          className="mx-auto w-full overflow-hidden bg-white shadow-[var(--shadow-nav)]"
-          style={{ borderRadius: mobileOpen ? "0 0 20px 20px" : undefined }}
+          className="mx-auto w-full overflow-hidden bg-white"
+          style={{ borderRadius: mobileOpen ? "0 0 8px 8px" : undefined }}
         >
-          <div className="flex items-start justify-between px-5 pb-12 pt-5">
+          <div className="flex items-start justify-between px-5 py-3">
             <Link href="/" onClick={() => setMobileOpen(false)}>
-              <Logo height={40} alt="Public AI USA" />
+              <Logo height={28} alt="Public AI USA" />
             </Link>
             <button
               type="button"
@@ -62,20 +59,17 @@ export default function SiteHeader() {
           </div>
 
           {mobileOpen && (
-            <div className="flex flex-col gap-12 px-5 pb-8 pt-2">
-              <div className="flex flex-col">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="pai-btn-label flex h-20 items-center border-t border-hairline py-[30px] no-underline hover:text-brand"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-              <Button href="https://chat.publicai.co">Try chat</Button>
+            <div className="flex flex-col px-5 pb-3">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="pai-btn-label flex h-10 items-center border-t border-hairline no-underline hover:text-brand"
+                >
+                  {item.label}
+                </Link>
+              ))}
             </div>
           )}
         </div>
