@@ -9,7 +9,6 @@ const navItems = [
   { label: "Services", href: "/#services" },
   { label: "MOCSI", href: "/mocsi/" },
   { label: "About", href: "/about/" },
-  { label: "Blog", href: "/blog/" },
 ];
 
 export default function SiteHeader() {
@@ -26,14 +25,11 @@ export default function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="pai-body text-[var(--text-primary)] no-underline hover:text-brand"
+              className="pai-body no-underline hover:text-brand"
             >
               {item.label}
             </Link>
           ))}
-          <span className="pai-mono text-secondary" aria-disabled="true">
-            Log in
-          </span>
           <Button href="https://chat.publicai.co">Try chat</Button>
         </nav>
       </div>
@@ -73,17 +69,11 @@ export default function SiteHeader() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="pai-btn-label flex h-20 items-center border-t border-hairline py-[30px] text-[var(--text-primary)] no-underline hover:text-brand"
+                    className="pai-btn-label flex h-20 items-center border-t border-hairline py-[30px] no-underline hover:text-brand"
                   >
                     {item.label}
                   </Link>
                 ))}
-                <span
-                  className="pai-btn-label flex h-20 items-center border-t border-hairline py-[30px] text-secondary"
-                  aria-disabled="true"
-                >
-                  Log in
-                </span>
               </div>
               <Button href="https://chat.publicai.co">Try chat</Button>
             </div>

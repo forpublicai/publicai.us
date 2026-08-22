@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <PageSection>
       <h1 className="pai-display max-w-4xl">Public AI for Maine</h1>
-      <p className="pai-ui mt-6 max-w-2xl text-secondary">
+      <p className="pai-ui mt-6 max-w-2xl">
         Value-added AI services for citizens, municipalities, and small
         businesses—running on community-governed compute at{" "}
         <Link href="/mocsi/" className="no-underline hover:text-brand">

@@ -17,7 +17,7 @@ export default function MocsiPage() {
     <>
       <PageSection>
         <h1 className="pai-h2">MOCSI</h1>
-        <p className="pai-ui mt-4 text-secondary">
+        <p className="pai-ui mt-4">
           Maine Open Compute Services Initiative
         </p>
         <p className="pai-body mt-4 max-w-2xl">

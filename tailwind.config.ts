@@ -12,7 +12,7 @@ const config: Config = {
         brand: "var(--pai-red)",
         brandHover: "var(--pai-red-hover)",
         subtle: "var(--pai-gray-100)",
-        secondary: "var(--pai-gray-500)",
+        secondary: "var(--pai-gray-500)", /* UI chrome only — not for readable text */
         oak: "var(--pai-oak)",
         leather: "var(--pai-leather)",
         parchment: "var(--pai-parchment)",

@@ -18,12 +18,10 @@ Logos and favicon are synced from the design system into `public/`.
 
 ## Site structure
 
-- `/` — Homepage with service grid, MOCSI teaser, partners, and blog roll
+- `/` — Homepage with service grid, MOCSI teaser, and partners
 - `/mocsi/` — MOCSI infrastructure story, progress, and funder CTAs
 - `/permitting/` — Permitting assistant for Maine small businesses
 - `/about/` — Mission, team, and contact
-- `/blog/` — Blog index
-- `/blog/[slug]/` — Individual posts
 
 External services: [chat.publicai.co](https://chat.publicai.co), [libraries.publicai.co](https://libraries.publicai.co)
 
@@ -53,7 +51,5 @@ For CI/deploy hosts, ensure submodules are initialized (e.g. `git submodule upda
 - `components/ds/` — Design-system primitives (Button, SiteHeader, etc.)
 - `components/home/` — Homepage sections
 - `vendor/design-system/` — Git submodule (tokens, reference components, assets)
-- `content/posts/` — Markdown blog posts (parsed with gray-matter)
-- `lib/posts.ts` — Blog post loading for static generation
 - `lib/services.ts` — Service card data shared across homepage and MOCSI page
 - `public/` — Static assets (logo SVGs, favicon, CNAME)

@@ -2,7 +2,6 @@ import Hero from "@/components/home/Hero";
 import Services from "@/components/home/Services";
 import MocsiTeaser from "@/components/home/DatacenterBlock";
 import PartnerFeature from "@/components/home/PartnerFeature";
-import BlogRoll from "@/components/home/BlogRoll";
 
 export default function HomePage() {
   return (
@@ -11,7 +10,6 @@ export default function HomePage() {
       <Services />
       <MocsiTeaser />
       <PartnerFeature />
-      <BlogRoll />
     </div>
   );
 }

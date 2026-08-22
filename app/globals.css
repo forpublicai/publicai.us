@@ -101,14 +101,14 @@
     font-weight: var(--type-body-weight);
     font-size: var(--type-body-size);
     line-height: var(--type-body-lh);
-    color: var(--text-secondary);
+    color: var(--text-primary);
   }
 
   .pai-mono {
     font-family: var(--font-mono);
     font-size: var(--type-mono-size);
     line-height: 1.4;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }

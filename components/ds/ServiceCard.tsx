@@ -22,7 +22,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
         <ul className="mt-4 space-y-2 pai-body-secondary">
           {service.examples.map((example) => (
             <li key={example} className="flex gap-2">
-              <span className="text-secondary">·</span>
+              <span className="text-[var(--text-primary)]">·</span>
               <span>{example}</span>
             </li>
           ))}
