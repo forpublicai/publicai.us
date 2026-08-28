@@ -66,16 +66,16 @@ export const news: NewsItem[] = [
   {
     date: "2025-12-15",
     parts: [
-      "Josh joked to a table of funders, “Who wants to help me build the least popular thing in America?” To his surprise, three hands immediately shot up.",
+      "Josh joked to a table of funders, “Who wants to help me build the least popular thing in America?” To his surprise, the CEO of Omidyar Network said yes.",
     ],
   },
   {
-    date: "2025-12-01",
+    date: "2025-12-08",
     parts: [
       { text: "Matt", href: "/about/" },
-      " emails ",
+      " messages ",
       { text: "Josh", href: "/about/" },
-      ": “Hey, what do you think about building a data center?”",
+      ": “Is a 'pretty small' data center sufficient to make this worthwhile? Generally, Maine is fairly prime for an energy/compute play. Rural Maine gets telehealth but they close the hospitals; edtech but they close the school, etc. The highways of Maine were built by corporations that had state-mandated legal obligations to share ownership interest and governance rights with the communities affected by the highways - farmers, local biz, towns themselves. Let's run it back.”",
     ],
   },
 ];
