@@ -10,6 +10,7 @@ type ButtonProps = {
   style?: CSSProperties;
   className?: string;
   disabled?: boolean;
+  type?: "button" | "submit" | "reset";
 };
 
 export default function Button({
@@ -19,6 +20,7 @@ export default function Button({
   style,
   className,
   disabled,
+  type = "button",
 }: ButtonProps) {
   const [hovered, setHovered] = useState(false);
 
@@ -65,13 +67,17 @@ export default function Button({
 
   return (
     <button
-      type="button"
+      type={type}
       onClick={onClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       disabled={disabled}
       className={className}
-      style={sharedStyle}
+      style={{
+        ...sharedStyle,
+        opacity: disabled ? 0.6 : 1,
+        cursor: disabled ? "not-allowed" : "pointer",
+      }}
     >
       {children}
     </button>

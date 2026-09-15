@@ -15,12 +15,12 @@ export default function SiteFooter() {
             </a>
           </div>
           <div className="flex flex-wrap gap-3">
-            <a
-              href="mailto:hello@publicai.co"
+            <Link
+              href="/loi/"
               className="pai-btn-label text-[var(--text-primary)] no-underline hover:text-brand"
             >
-              Request access
-            </a>
+              Letter of intent
+            </Link>
             <Link href="/funders/" className="pai-btn-label no-underline hover:text-brand">
               Investors
             </Link>

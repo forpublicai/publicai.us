@@ -21,6 +21,7 @@ Logos and favicon are synced from the design system into `public/`.
 - `/` — Homepage with MOCSI story, service divisions table, and news & updates
 - `/about/` — Mission, people, and contact
 - `/funders/` — Co-investment overview for funders supporting MOCSI
+- `/loi/` — Non-binding letter of intent for MOCSI compute demand
 - `/aquaculture/` — Redirects to [aquaculture.publicai.co](https://aquaculture.publicai.co)
 
 External services: [chat.publicai.co](https://chat.publicai.co), [libraries.publicai.co](https://libraries.publicai.co), [aquaculture.publicai.co](https://aquaculture.publicai.co)
@@ -30,27 +31,30 @@ External services: [chat.publicai.co](https://chat.publicai.co), [libraries.publ
 ```bash
 npm install
 git submodule update --init --recursive
+vercel link --scope public-ai-co --project publicai-us
+vercel env pull .env.local
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Build (static export)
+The LOI form needs Neon (`DATABASE_URL`) and Resend (`RESEND_API_KEY`) from the linked Vercel project. See [`.env.example`](.env.example). Pull env vars after Marketplace integrations are connected.
+
+## Build & deploy
 
 ```bash
 npm run build
 ```
 
-Output is in the `out/` directory. Deploy `out/` to GitHub Pages, Vercel, or any static host. The `CNAME` file is included for custom domain (publicai.us).
-
-For CI/deploy hosts, ensure submodules are initialized (e.g. `git submodule update --init --recursive` before build).
+Deploy on Vercel (Server Actions require a Node runtime; this is no longer a static export). Ensure git submodules are initialized in CI (`git submodule update --init --recursive` before build). The `CNAME` / custom domain for publicai.us is configured on the Vercel project.
 
 ## Project layout
 
-- `app/` — Next.js App Router pages
+- `app/` — Next.js App Router pages (including `app/loi/` form + Server Action)
 - `components/ds/` — Design-system primitives (Button, SiteHeader, etc.)
 - `components/home/` — Homepage sections
 - `vendor/design-system/` — Git submodule (tokens, reference components, assets)
+- `lib/db.ts` — Neon helper and `loi_submissions` table ensure
 - `lib/services.ts` — Live/beta/coming service data, listed under the MOCSI service divisions table
 - `lib/people.json` — People shown in the About page's People section
 - `lib/news.ts` — News & updates entries shown on the homepage
