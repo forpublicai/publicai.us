@@ -28,6 +28,18 @@ function organicLabel(pct: number): string {
   return `${Math.abs(pct)}% less than typical market prices`;
 }
 
+/** Visual 0–100 with center (50) = market (0%). Maps −50…0…+100. */
+function organicFromVisual(visual: number): number {
+  const v = Math.min(100, Math.max(0, visual));
+  const pct = v <= 50 ? -50 + v : (v - 50) * 2;
+  return Math.round(pct / 5) * 5;
+}
+
+function organicToVisual(pct: number): number {
+  if (pct <= 0) return 50 + pct; // −50 → 0, 0 → 50
+  return 50 + pct / 2; // 100 → 100
+}
+
 export default function LoiForm() {
   const [computeUnit, setComputeUnit] = useState<ComputeUnit>("gpu_hours");
   const [organicPct, setOrganicPct] = useState(0);
@@ -181,12 +193,16 @@ export default function LoiForm() {
           <input
             id="organicPremiumPct"
             type="range"
-            min={-50}
+            min={0}
             max={100}
-            step={5}
-            value={organicPct}
-            onChange={(e) => setOrganicPct(Number(e.target.value))}
+            step={1}
+            value={organicToVisual(organicPct)}
+            onChange={(e) => setOrganicPct(organicFromVisual(Number(e.target.value)))}
             className="mt-2 w-full accent-[var(--pai-red)]"
+            aria-valuemin={-50}
+            aria-valuemax={100}
+            aria-valuenow={organicPct}
+            aria-valuetext={organicLabel(organicPct)}
           />
           <div className="mt-1 flex justify-between pai-mono text-[11px]">
             <span>−50% (less)</span>
