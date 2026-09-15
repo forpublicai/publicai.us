@@ -45,13 +45,11 @@ export async function submitLoi(formData: FormData): Promise<LoiSubmitResult> {
   const email = str(formData, "email");
   const orgKind = str(formData, "orgKind");
   const location = str(formData, "location");
-  const inMaine = bool(formData, "inMaine");
   const computeUnit = str(formData, "computeUnit");
   const computeAmount = str(formData, "computeAmount");
   const computeScale = str(formData, "computeScale");
   const organicRaw = str(formData, "organicPremiumPct");
   const neededBy = str(formData, "neededBy");
-  const neededByNote = str(formData, "neededByNote");
   const comments = str(formData, "comments");
   const nonBindingAck = bool(formData, "nonBindingAck");
   const fundraisingRef = bool(formData, "fundraisingRef");
@@ -105,6 +103,14 @@ export async function submitLoi(formData: FormData): Promise<LoiSubmitResult> {
     };
   }
 
+  if (!fundraisingRef) {
+    return {
+      ok: false,
+      error:
+        "Please acknowledge that MOCSI may reference this letter in fundraising materials.",
+    };
+  }
+
   try {
     await ensureLoiTable();
     const sql = getSql();
@@ -131,13 +137,13 @@ export async function submitLoi(formData: FormData): Promise<LoiSubmitResult> {
         ${email},
         ${orgKind},
         ${location || null},
-        ${inMaine},
+        ${false},
         ${computeUnit},
         ${computeUnit === "scale" ? null : computeAmount},
         ${computeUnit === "scale" ? computeScale : null},
         ${organicPremiumPct},
         ${neededBy || null},
-        ${neededByNote || null},
+        ${null},
         ${comments || null},
         ${nonBindingAck},
         ${fundraisingRef}
@@ -158,13 +164,11 @@ export async function submitLoi(formData: FormData): Promise<LoiSubmitResult> {
       email,
       orgKind,
       location,
-      inMaine,
       computeUnit,
       computeAmount,
       computeScale,
       organicPremiumPct,
       neededBy,
-      neededByNote,
       comments,
       fundraisingRef,
     });
@@ -181,13 +185,11 @@ type LoiEmailPayload = {
   email: string;
   orgKind: string;
   location: string;
-  inMaine: boolean;
   computeUnit: string;
   computeAmount: string;
   computeScale: string;
   organicPremiumPct: number;
   neededBy: string;
-  neededByNote: string;
   comments: string;
   fundraisingRef: boolean;
 };
@@ -247,10 +249,10 @@ async function sendLoiEmail(p: LoiEmailPayload) {
     `<li><strong>Email:</strong> ${escapeHtml(p.email)}</li>`,
     `<li><strong>Organization:</strong> ${escapeHtml(p.organization)}</li>`,
     `<li><strong>Kind:</strong> ${escapeHtml(ORG_KIND_LABELS[p.orgKind] ?? p.orgKind)}</li>`,
-    `<li><strong>Location:</strong> ${escapeHtml(p.location || "—")}${p.inMaine ? " (Maine)" : ""}</li>`,
+    `<li><strong>Location:</strong> ${escapeHtml(p.location || "—")}</li>`,
     `<li><strong>Monthly compute:</strong> ${escapeHtml(formatCompute(p))}</li>`,
     `<li><strong>Organic vs market:</strong> ${escapeHtml(formatOrganic(p.organicPremiumPct))}</li>`,
-    `<li><strong>When needed:</strong> ${escapeHtml(p.neededBy || "—")}${p.neededByNote ? ` — ${escapeHtml(p.neededByNote)}` : ""}</li>`,
+    `<li><strong>When needed:</strong> ${escapeHtml(p.neededBy || "—")}</li>`,
     `<li><strong>Fundraising reference OK:</strong> ${p.fundraisingRef ? "Yes" : "No"}</li>`,
     "</ul>",
     p.comments

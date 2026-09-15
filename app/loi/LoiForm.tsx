@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, type FormEvent, type ReactNode } from "react";
 import Button from "@/components/ds/Button";
 import { submitLoi } from "./actions";
 
@@ -10,6 +10,17 @@ const fieldClass =
   "mt-1 w-full border border-hairline bg-white px-3 py-2 pai-body outline-none focus:border-brand";
 const labelClass = "pai-section block";
 const helpClass = "pai-body mt-1 text-[var(--pai-gray-500)]";
+
+function Req({ children }: { children: ReactNode }) {
+  return (
+    <>
+      {children}{" "}
+      <span className="text-[var(--pai-red)]" aria-hidden="true">
+        *
+      </span>
+    </>
+  );
+}
 
 function organicLabel(pct: number): string {
   if (pct === 0) return "About the same as typical market prices";
@@ -70,7 +81,9 @@ export default function LoiForm() {
       </div>
 
       <fieldset className="space-y-3">
-        <legend className="pai-h3">Monthly compute</legend>
+        <legend className="pai-h3">
+          <Req>Monthly compute</Req>
+        </legend>
         <p className={helpClass}>
           Indicative is fine. Rough scale works if you don&apos;t have a number yet.
         </p>
@@ -97,7 +110,7 @@ export default function LoiForm() {
         {computeUnit === "gpu_hours" && (
           <div>
             <label htmlFor="computeAmount" className={labelClass}>
-              Approximate GPU-hours per month
+              <Req>Approximate GPU-hours per month</Req>
             </label>
             <input
               id="computeAmount"
@@ -105,6 +118,7 @@ export default function LoiForm() {
               type="number"
               min={0}
               step="any"
+              required
               placeholder="e.g. 500"
               className={fieldClass}
             />
@@ -113,7 +127,7 @@ export default function LoiForm() {
         {computeUnit === "usd" && (
           <div>
             <label htmlFor="computeAmount" className={labelClass}>
-              Approximate monthly budget (USD)
+              <Req>Approximate monthly budget (USD)</Req>
             </label>
             <input
               id="computeAmount"
@@ -121,6 +135,7 @@ export default function LoiForm() {
               type="number"
               min={0}
               step="any"
+              required
               placeholder="e.g. 2000"
               className={fieldClass}
             />
@@ -129,9 +144,15 @@ export default function LoiForm() {
         {computeUnit === "scale" && (
           <div>
             <label htmlFor="computeScale" className={labelClass}>
-              Rough monthly scale
+              <Req>Rough monthly scale</Req>
             </label>
-            <select id="computeScale" name="computeScale" className={fieldClass} defaultValue="">
+            <select
+              id="computeScale"
+              name="computeScale"
+              required
+              className={fieldClass}
+              defaultValue=""
+            >
               <option value="" disabled>
                 Select…
               </option>
@@ -145,7 +166,9 @@ export default function LoiForm() {
       </fieldset>
 
       <fieldset className="space-y-3">
-        <legend className="pai-h3">Organic compute vs market</legend>
+        <legend className="pai-h3">
+          <Req>Organic compute vs market</Req>
+        </legend>
         <p className={helpClass}>
           How much more (or less) would you pay for organic compute—hydropowered,
           community-controlled, locally sourced, Maine-based hosting—compared to
@@ -177,7 +200,7 @@ export default function LoiForm() {
         <legend className="pai-h3">About you</legend>
         <div>
           <label htmlFor="organization" className={labelClass}>
-            Organization
+            <Req>Organization</Req>
           </label>
           <input
             id="organization"
@@ -190,7 +213,7 @@ export default function LoiForm() {
         </div>
         <div>
           <label htmlFor="name" className={labelClass}>
-            Your name
+            <Req>Your name</Req>
           </label>
           <input
             id="name"
@@ -203,7 +226,7 @@ export default function LoiForm() {
         </div>
         <div>
           <label htmlFor="email" className={labelClass}>
-            Email
+            <Req>Email</Req>
           </label>
           <input
             id="email"
@@ -216,7 +239,7 @@ export default function LoiForm() {
         </div>
         <div>
           <label htmlFor="orgKind" className={labelClass}>
-            Kind of organization
+            <Req>Kind of organization</Req>
           </label>
           <select id="orgKind" name="orgKind" required className={fieldClass} defaultValue="">
             <option value="" disabled>
@@ -238,14 +261,10 @@ export default function LoiForm() {
             id="location"
             name="location"
             type="text"
-            placeholder="City, state / region"
+            placeholder="City, state / region (e.g. Brunswick, Maine)"
             autoComplete="address-level2"
             className={fieldClass}
           />
-          <label className="pai-body mt-2 flex items-center gap-2">
-            <input type="checkbox" name="inMaine" />
-            We&apos;re in Maine
-          </label>
         </div>
       </fieldset>
 
@@ -256,12 +275,6 @@ export default function LoiForm() {
             When you need it
           </label>
           <input id="neededBy" name="neededBy" type="month" className={fieldClass} />
-          <input
-            name="neededByNote"
-            type="text"
-            placeholder="Optional: range, flexibility, constraints"
-            className={`${fieldClass} mt-2`}
-          />
         </div>
         <div>
           <label htmlFor="comments" className={labelClass}>
@@ -271,25 +284,33 @@ export default function LoiForm() {
             id="comments"
             name="comments"
             rows={4}
-            placeholder="e.g. extra provenance requirements, certain SLAs, specific hardware, specific models"
+            placeholder="e.g. extra provenance requirements, certain SLAs, specific hardware, specific models, how excited you are about local, community compute"
             className={fieldClass}
           />
         </div>
       </fieldset>
 
       <fieldset className="space-y-3">
-        <legend className="pai-h3">Acknowledgements</legend>
+        <legend className="pai-h3">
+          <Req>Acknowledgements</Req>
+        </legend>
         <label className="pai-body flex items-start gap-2">
           <input type="checkbox" name="nonBindingAck" required className="mt-1" />
           <span>
+            <span className="text-[var(--pai-red)]" aria-hidden="true">
+              *{" "}
+            </span>
             I understand this is a non-binding statement of intent. It does not
             obligate my organization to purchase services or MOCSI to deliver
             them. Final terms will be set in a definitive agreement.
           </span>
         </label>
         <label className="pai-body flex items-start gap-2">
-          <input type="checkbox" name="fundraisingRef" className="mt-1" />
+          <input type="checkbox" name="fundraisingRef" required className="mt-1" />
           <span>
+            <span className="text-[var(--pai-red)]" aria-hidden="true">
+              *{" "}
+            </span>
             MOCSI may reference that we submitted this letter in fundraising
             materials, funder communications, and grant applications. Press
             releases and use of our name or logo still require prior written
