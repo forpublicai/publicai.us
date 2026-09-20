@@ -38,7 +38,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-The waitlist form needs Neon (`DATABASE_URL`) and Resend (`RESEND_API_KEY`) from the linked Vercel project. See [`.env.example`](.env.example). Pull env vars after Marketplace integrations are connected.
+The waitlist form needs Neon (`DATABASE_URL`), Resend (`RESEND_API_KEY`), and Vercel AI Gateway (OIDC on Vercel, or `vercel env pull` locally) so signup emails can include web-researched background. See [`.env.example`](.env.example).
 
 ## Build & deploy
 
@@ -54,6 +54,7 @@ Deploy on Vercel (Server Actions require a Node runtime; this is no longer a sta
 - `components/ds/` — Design-system primitives (Button, SiteHeader, etc.)
 - `components/home/` — Homepage sections
 - `vendor/design-system/` — Git submodule (tokens, reference components, assets)
+- `lib/waitlist-research.ts` — AI Gateway + Perplexity web search briefing for waitlist emails
 - `lib/db.ts` — Neon helper and `loi_submissions` table ensure
 - `lib/services.ts` — Live/beta/coming service data, listed under the MOCSI service divisions table
 - `lib/people.json` — People shown in the About page's People section

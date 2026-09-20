@@ -2,19 +2,11 @@
 
 import { Resend } from "resend";
 import { ensureLoiTable, getSql } from "@/lib/db";
+import { researchWaitlistSignup } from "@/lib/waitlist-research";
 
 export type WaitlistSubmitResult =
   | { ok: true }
   | { ok: false; error: string };
-
-const ORG_KINDS = [
-  "nonprofit",
-  "university",
-  "government",
-  "business",
-  "cooperative",
-  "other",
-] as const;
 
 const COMPUTE_UNITS = ["gpu_hours", "usd", "scale"] as const;
 
@@ -43,16 +35,16 @@ export async function submitWaitlist(formData: FormData): Promise<WaitlistSubmit
   const organization = str(formData, "organization");
   const name = str(formData, "name");
   const email = str(formData, "email");
-  const orgKind = str(formData, "orgKind");
   const location = str(formData, "location");
   const computeUnit = str(formData, "computeUnit");
   const computeAmount = str(formData, "computeAmount");
   const computeScale = str(formData, "computeScale");
   const organicRaw = str(formData, "organicPremiumPct");
+  const computePurpose = str(formData, "computePurpose");
   const neededBy = str(formData, "neededBy");
   const comments = str(formData, "comments");
   const nonBindingAck = bool(formData, "nonBindingAck");
-  const fundraisingRef = bool(formData, "fundraisingRef");
+  const fundraisingRef = nonBindingAck;
 
   if (!organization || !name || !email) {
     return { ok: false, error: "Organization, name, and email are required." };
@@ -60,10 +52,6 @@ export async function submitWaitlist(formData: FormData): Promise<WaitlistSubmit
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return { ok: false, error: "Please enter a valid email address." };
-  }
-
-  if (!ORG_KINDS.includes(orgKind as (typeof ORG_KINDS)[number])) {
-    return { ok: false, error: "Please select a kind of organization." };
   }
 
   if (!COMPUTE_UNITS.includes(computeUnit as (typeof COMPUTE_UNITS)[number])) {
@@ -88,26 +76,23 @@ export async function submitWaitlist(formData: FormData): Promise<WaitlistSubmit
   if (
     Number.isNaN(organicPremiumPct) ||
     organicPremiumPct < -50 ||
-    organicPremiumPct > 100
+    organicPremiumPct > 200
   ) {
     return {
       ok: false,
-      error: "Organic compute preference must be between −50% and +100%.",
+      error: "Organic compute preference must be between −50% and +200%.",
     };
+  }
+
+  if (!neededBy || !isValidTiming(neededBy)) {
+    return { ok: false, error: "Please choose when you need compute." };
   }
 
   if (!nonBindingAck) {
     return {
       ok: false,
-      error: "Please acknowledge that joining the waitlist is non-binding.",
-    };
-  }
-
-  if (!fundraisingRef) {
-    return {
-      ok: false,
       error:
-        "Please acknowledge that MOCSI may reference this waitlist signup in fundraising materials.",
+        "Please acknowledge that joining the waitlist is non-binding and that MOCSI may reference this signup in fundraising materials.",
     };
   }
 
@@ -135,15 +120,15 @@ export async function submitWaitlist(formData: FormData): Promise<WaitlistSubmit
         ${organization},
         ${name},
         ${email},
-        ${orgKind},
+        ${"unspecified"},
         ${location || null},
         ${false},
         ${computeUnit},
         ${computeUnit === "scale" ? null : computeAmount},
         ${computeUnit === "scale" ? computeScale : null},
         ${organicPremiumPct},
-        ${neededBy || null},
-        ${null},
+        ${neededBy},
+        ${computePurpose || null},
         ${comments || null},
         ${nonBindingAck},
         ${fundraisingRef}
@@ -158,20 +143,30 @@ export async function submitWaitlist(formData: FormData): Promise<WaitlistSubmit
   }
 
   try {
-    await sendWaitlistEmail({
+    const research = await researchWaitlistSignup({
       organization,
       name,
       email,
-      orgKind,
       location,
-      computeUnit,
-      computeAmount,
-      computeScale,
-      organicPremiumPct,
-      neededBy,
-      comments,
-      fundraisingRef,
+      comments: [computePurpose, comments].filter(Boolean).join("\n\n"),
     });
+    await sendWaitlistEmail(
+      {
+        organization,
+        name,
+        email,
+        location,
+        computeUnit,
+        computeAmount,
+        computeScale,
+        organicPremiumPct,
+        computePurpose,
+        neededBy,
+        comments,
+        fundraisingRef,
+      },
+      research?.summaryHtml ?? null,
+    );
   } catch (err) {
     console.error("Waitlist email failed (submission was saved):", err);
   }
@@ -179,28 +174,24 @@ export async function submitWaitlist(formData: FormData): Promise<WaitlistSubmit
   return { ok: true };
 }
 
+function isValidTiming(value: string): boolean {
+  if (value === "asap" || value === "not_urgent") return true;
+  return /^within_\d+_months$/.test(value);
+}
+
 type WaitlistEmailPayload = {
   organization: string;
   name: string;
   email: string;
-  orgKind: string;
   location: string;
   computeUnit: string;
   computeAmount: string;
   computeScale: string;
   organicPremiumPct: number;
+  computePurpose: string;
   neededBy: string;
   comments: string;
   fundraisingRef: boolean;
-};
-
-const ORG_KIND_LABELS: Record<string, string> = {
-  nonprofit: "Nonprofit",
-  university: "University / research",
-  government: "Government / municipality",
-  business: "Business",
-  cooperative: "Cooperative",
-  other: "Other",
 };
 
 const SCALE_LABELS: Record<string, string> = {
@@ -226,7 +217,21 @@ function formatOrganic(pct: number): string {
   return `Would need ${Math.abs(pct)}% below typical market prices`;
 }
 
-async function sendWaitlistEmail(p: WaitlistEmailPayload) {
+function formatTiming(neededBy: string): string {
+  if (neededBy === "asap") return "ASAP";
+  if (neededBy === "not_urgent") return "Not urgent";
+  const match = neededBy.match(/^within_(\d+)_months$/);
+  if (match) {
+    const n = match[1];
+    return `Within ${n} month${n === "1" ? "" : "s"}`;
+  }
+  return neededBy;
+}
+
+async function sendWaitlistEmail(
+  p: WaitlistEmailPayload,
+  backgroundHtml: string | null,
+) {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     console.error("RESEND_API_KEY is not set; skipping waitlist email");
@@ -248,16 +253,19 @@ async function sendWaitlistEmail(p: WaitlistEmailPayload) {
     `<li><strong>Name:</strong> ${escapeHtml(p.name)}</li>`,
     `<li><strong>Email:</strong> ${escapeHtml(p.email)}</li>`,
     `<li><strong>Organization:</strong> ${escapeHtml(p.organization)}</li>`,
-    `<li><strong>Kind:</strong> ${escapeHtml(ORG_KIND_LABELS[p.orgKind] ?? p.orgKind)}</li>`,
     `<li><strong>Location:</strong> ${escapeHtml(p.location || "—")}</li>`,
     `<li><strong>Monthly compute:</strong> ${escapeHtml(formatCompute(p))}</li>`,
-    `<li><strong>Organic vs market:</strong> ${escapeHtml(formatOrganic(p.organicPremiumPct))}</li>`,
-    `<li><strong>When needed:</strong> ${escapeHtml(p.neededBy || "—")}</li>`,
+    `<li><strong>Price:</strong> ${escapeHtml(formatOrganic(p.organicPremiumPct))}</li>`,
+    `<li><strong>Need compute for:</strong> ${escapeHtml(p.computePurpose || "—")}</li>`,
+    `<li><strong>When needed:</strong> ${escapeHtml(formatTiming(p.neededBy))}</li>`,
     `<li><strong>Fundraising reference OK:</strong> ${p.fundraisingRef ? "Yes" : "No"}</li>`,
     "</ul>",
     p.comments
       ? `<p><strong>Other requirements / comments:</strong></p><p>${escapeHtml(p.comments).replace(/\n/g, "<br>")}</p>`
       : "",
+    backgroundHtml
+      ? `<hr style="border:none;border-top:1px solid #ddd;margin:24px 0" />${backgroundHtml}`
+      : `<hr style="border:none;border-top:1px solid #ddd;margin:24px 0" /><p><em>Background research unavailable for this signup.</em></p>`,
   ].join("\n");
 
   const { error } = await resend.emails.send({
