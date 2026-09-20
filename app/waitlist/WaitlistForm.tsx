@@ -8,7 +8,7 @@ type ComputeUnit = "gpu_hours" | "usd" | "scale";
 type TimingChoice = "asap" | "not_urgent" | "within_months";
 
 const fieldClass =
-  "mt-1 w-full border border-hairline bg-white px-3 py-2 pai-body outline-none focus:border-brand";
+  "mt-1 w-full border border-[var(--pai-gray-400)] bg-white px-3 py-2 pai-body outline-none focus:border-brand";
 const questionClass = "pai-h3";
 const helpClass = "pai-body mt-1 text-[var(--pai-gray-500)]";
 
@@ -106,7 +106,7 @@ export default function WaitlistForm() {
 
   if (done) {
     return (
-      <div className="max-w-xl space-y-3 rounded border border-hairline bg-subtle p-4">
+      <div className="max-w-xl space-y-3 rounded border border-[var(--pai-gray-400)] bg-subtle p-4">
         <h2 className="pai-h3">You&apos;re on the list</h2>
         <p className="pai-body">
           Thanks for joining the MOCSI waitlist. We&apos;ll follow up as capacity
@@ -125,7 +125,7 @@ export default function WaitlistForm() {
       "pai-body border px-3 py-2 text-left transition-colors",
       active
         ? "border-brand bg-subtle text-[var(--text-primary)]"
-        : "border-hairline bg-white hover:border-brand",
+        : "border-[var(--pai-gray-400)] bg-white hover:border-brand",
     ].join(" ");
 
   return (
@@ -395,7 +395,7 @@ export default function WaitlistForm() {
           onClick={() => setMonthsDialogOpen(false)}
         >
           <div
-            className="w-full max-w-sm space-y-3 border border-hairline bg-white p-4 shadow-sm"
+            className="w-full max-w-sm space-y-3 border border-[var(--pai-gray-400)] bg-white p-4 shadow-sm"
             onClick={(e) => e.stopPropagation()}
           >
             <h2 id="months-dialog-title" className="pai-h3">
@@ -416,7 +416,7 @@ export default function WaitlistForm() {
               </Button>
               <button
                 type="button"
-                className="pai-body border border-hairline px-3 py-2"
+                className="pai-body border border-[var(--pai-gray-400)] px-3 py-2"
                 onClick={() => setMonthsDialogOpen(false)}
               >
                 Cancel

@@ -244,7 +244,13 @@ async function sendWaitlistEmail(
     (domain
       ? `MOCSI Waitlist <noreply@${domain}>`
       : "MOCSI Waitlist <onboarding@resend.dev>");
-  const to = process.env.LOI_TO_EMAIL ?? "josh@publicai.co";
+  const to = [
+    ...new Set([
+      process.env.LOI_TO_EMAIL ?? "josh@publicai.co",
+      "fletcher@kittredge.com",
+      "matthewsteinvictor@gmail.com",
+    ]),
+  ];
 
   const resend = new Resend(apiKey);
   const lines = [
@@ -270,7 +276,7 @@ async function sendWaitlistEmail(
 
   const { error } = await resend.emails.send({
     from,
-    to: [to],
+    to,
     replyTo: p.email,
     subject: `Waitlist: ${p.organization} — ${formatCompute(p)}`,
     html: lines,
