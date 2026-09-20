@@ -21,7 +21,7 @@ Logos and favicon are synced from the design system into `public/`.
 - `/` — Homepage with MOCSI story, service divisions table, and news & updates
 - `/about/` — Mission, people, and contact
 - `/funders/` — Co-investment overview for funders supporting MOCSI
-- `/loi/` — Non-binding letter of intent for MOCSI compute demand
+- `/waitlist/` — Join the MOCSI waitlist for organic compute demand
 - `/aquaculture/` — Redirects to [aquaculture.publicai.co](https://aquaculture.publicai.co)
 
 External services: [chat.publicai.co](https://chat.publicai.co), [libraries.publicai.co](https://libraries.publicai.co), [aquaculture.publicai.co](https://aquaculture.publicai.co)
@@ -38,7 +38,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-The LOI form needs Neon (`DATABASE_URL`) and Resend (`RESEND_API_KEY`) from the linked Vercel project. See [`.env.example`](.env.example). Pull env vars after Marketplace integrations are connected.
+The waitlist form needs Neon (`DATABASE_URL`) and Resend (`RESEND_API_KEY`) from the linked Vercel project. See [`.env.example`](.env.example). Pull env vars after Marketplace integrations are connected.
 
 ## Build & deploy
 
@@ -50,7 +50,7 @@ Deploy on Vercel (Server Actions require a Node runtime; this is no longer a sta
 
 ## Project layout
 
-- `app/` — Next.js App Router pages (including `app/loi/` form + Server Action)
+- `app/` — Next.js App Router pages (including `app/waitlist/` form + Server Action)
 - `components/ds/` — Design-system primitives (Button, SiteHeader, etc.)
 - `components/home/` — Homepage sections
 - `vendor/design-system/` — Git submodule (tokens, reference components, assets)

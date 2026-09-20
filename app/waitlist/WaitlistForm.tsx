@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent, type ReactNode } from "react";
 import Button from "@/components/ds/Button";
-import { submitLoi } from "./actions";
+import { submitWaitlist } from "./actions";
 
 type ComputeUnit = "gpu_hours" | "usd" | "scale";
 
@@ -40,7 +40,7 @@ function organicToVisual(pct: number): number {
   return 50 + pct / 2; // 100 → 100
 }
 
-export default function LoiForm() {
+export default function WaitlistForm() {
   const [computeUnit, setComputeUnit] = useState<ComputeUnit>("gpu_hours");
   const [organicPct, setOrganicPct] = useState(0);
   const [pending, setPending] = useState(false);
@@ -54,7 +54,7 @@ export default function LoiForm() {
     try {
       const formData = new FormData(e.currentTarget);
       formData.set("organicPremiumPct", String(organicPct));
-      const result = await submitLoi(formData);
+      const result = await submitWaitlist(formData);
       if (result.ok) {
         setDone(true);
       } else {
@@ -70,11 +70,10 @@ export default function LoiForm() {
   if (done) {
     return (
       <div className="max-w-xl space-y-3 rounded border border-hairline bg-subtle p-4">
-        <h2 className="pai-h3">Thank you</h2>
+        <h2 className="pai-h3">You&apos;re on the list</h2>
         <p className="pai-body">
-          We received your letter of intent. This is non-binding; we&apos;ll follow
-          up as MOCSI capacity and pricing firm up. If you have questions sooner,
-          write{" "}
+          Thanks for joining the MOCSI waitlist. We&apos;ll follow up as capacity
+          and pricing firm up. Questions in the meantime?{" "}
           <a href="mailto:hello@publicai.co" className="hover:text-brand">
             hello@publicai.co
           </a>
@@ -316,9 +315,9 @@ export default function LoiForm() {
             <span className="text-[var(--pai-red)]" aria-hidden="true">
               *{" "}
             </span>
-            I understand this is a non-binding statement of intent. It does not
+            I understand joining the waitlist is non-binding. It does not
             obligate my organization to purchase services or MOCSI to deliver
-            them. Final terms will be set in a definitive agreement.
+            them. Final terms will be set later if we move forward together.
           </span>
         </label>
         <label className="pai-body flex items-start gap-2">
@@ -327,7 +326,7 @@ export default function LoiForm() {
             <span className="text-[var(--pai-red)]" aria-hidden="true">
               *{" "}
             </span>
-            MOCSI may reference that we submitted this letter in fundraising
+            MOCSI may reference that we joined this waitlist in fundraising
             materials, funder communications, and grant applications. Press
             releases and use of our name or logo still require prior written
             consent.
@@ -342,7 +341,7 @@ export default function LoiForm() {
       )}
 
       <Button type="submit" disabled={pending}>
-        {pending ? "Submitting…" : "Submit letter of intent"}
+        {pending ? "Joining…" : "Join the waitlist"}
       </Button>
     </form>
   );

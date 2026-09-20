@@ -3,7 +3,7 @@
 import { Resend } from "resend";
 import { ensureLoiTable, getSql } from "@/lib/db";
 
-export type LoiSubmitResult =
+export type WaitlistSubmitResult =
   | { ok: true }
   | { ok: false; error: string };
 
@@ -34,7 +34,7 @@ function bool(formData: FormData, key: string): boolean {
   return formData.get(key) === "on" || formData.get(key) === "true";
 }
 
-export async function submitLoi(formData: FormData): Promise<LoiSubmitResult> {
+export async function submitWaitlist(formData: FormData): Promise<WaitlistSubmitResult> {
   // Honeypot — bots fill this; humans leave it empty
   if (str(formData, "website")) {
     return { ok: true };
@@ -99,7 +99,7 @@ export async function submitLoi(formData: FormData): Promise<LoiSubmitResult> {
   if (!nonBindingAck) {
     return {
       ok: false,
-      error: "Please acknowledge that this is a non-binding statement of intent.",
+      error: "Please acknowledge that joining the waitlist is non-binding.",
     };
   }
 
@@ -107,7 +107,7 @@ export async function submitLoi(formData: FormData): Promise<LoiSubmitResult> {
     return {
       ok: false,
       error:
-        "Please acknowledge that MOCSI may reference this letter in fundraising materials.",
+        "Please acknowledge that MOCSI may reference this waitlist signup in fundraising materials.",
     };
   }
 
@@ -150,7 +150,7 @@ export async function submitLoi(formData: FormData): Promise<LoiSubmitResult> {
       )
     `;
   } catch (err) {
-    console.error("LOI DB insert failed:", err);
+    console.error("Waitlist DB insert failed:", err);
     return {
       ok: false,
       error: "Could not save your submission. Please try again or email hello@publicai.co.",
@@ -158,7 +158,7 @@ export async function submitLoi(formData: FormData): Promise<LoiSubmitResult> {
   }
 
   try {
-    await sendLoiEmail({
+    await sendWaitlistEmail({
       organization,
       name,
       email,
@@ -173,13 +173,13 @@ export async function submitLoi(formData: FormData): Promise<LoiSubmitResult> {
       fundraisingRef,
     });
   } catch (err) {
-    console.error("LOI email failed (submission was saved):", err);
+    console.error("Waitlist email failed (submission was saved):", err);
   }
 
   return { ok: true };
 }
 
-type LoiEmailPayload = {
+type WaitlistEmailPayload = {
   organization: string;
   name: string;
   email: string;
@@ -210,7 +210,7 @@ const SCALE_LABELS: Record<string, string> = {
   thousands: "Thousands+ of GPU-hours / month",
 };
 
-function formatCompute(p: LoiEmailPayload): string {
+function formatCompute(p: WaitlistEmailPayload): string {
   if (p.computeUnit === "gpu_hours") {
     return `~${p.computeAmount} GPU-hours / month`;
   }
@@ -226,10 +226,10 @@ function formatOrganic(pct: number): string {
   return `Would need ${Math.abs(pct)}% below typical market prices`;
 }
 
-async function sendLoiEmail(p: LoiEmailPayload) {
+async function sendWaitlistEmail(p: WaitlistEmailPayload) {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.error("RESEND_API_KEY is not set; skipping LOI email");
+    console.error("RESEND_API_KEY is not set; skipping waitlist email");
     return;
   }
 
@@ -237,13 +237,13 @@ async function sendLoiEmail(p: LoiEmailPayload) {
   const from =
     process.env.LOI_FROM_EMAIL ??
     (domain
-      ? `MOCSI LOI <noreply@${domain}>`
-      : "MOCSI LOI <onboarding@resend.dev>");
+      ? `MOCSI Waitlist <noreply@${domain}>`
+      : "MOCSI Waitlist <onboarding@resend.dev>");
   const to = process.env.LOI_TO_EMAIL ?? "josh@publicai.co";
 
   const resend = new Resend(apiKey);
   const lines = [
-    `<p><strong>New Letter of Intent</strong> from ${escapeHtml(p.organization)}</p>`,
+    `<p><strong>New waitlist signup</strong> from ${escapeHtml(p.organization)}</p>`,
     "<ul>",
     `<li><strong>Name:</strong> ${escapeHtml(p.name)}</li>`,
     `<li><strong>Email:</strong> ${escapeHtml(p.email)}</li>`,
@@ -264,7 +264,7 @@ async function sendLoiEmail(p: LoiEmailPayload) {
     from,
     to: [to],
     replyTo: p.email,
-    subject: `LOI: ${p.organization} — ${formatCompute(p)}`,
+    subject: `Waitlist: ${p.organization} — ${formatCompute(p)}`,
     html: lines,
   });
 

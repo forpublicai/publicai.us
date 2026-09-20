@@ -159,7 +159,7 @@ export default function Mocsi() {
         </tbody>
       </table>
       <div className="mt-4 flex flex-wrap items-center gap-3">
-        <Button href="/loi/">Letter of intent</Button>
+        <Button href="/waitlist/">Join the waitlist</Button>
         <Button href="mailto:hello@publicai.co">Contact us</Button>
       </div>
     </PageSection>

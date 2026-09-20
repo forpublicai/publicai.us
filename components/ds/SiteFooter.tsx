@@ -16,10 +16,10 @@ export default function SiteFooter() {
           </div>
           <div className="flex flex-wrap gap-3">
             <Link
-              href="/loi/"
+              href="/waitlist/"
               className="pai-btn-label text-[var(--text-primary)] no-underline hover:text-brand"
             >
-              Letter of intent
+              Waitlist
             </Link>
             <Link href="/funders/" className="pai-btn-label no-underline hover:text-brand">
               Investors
