@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Have your say — Public AI USA</title>
+<meta name="description" content="A statewide public process will decide what a free Maine AI and the open tools built on compute in a community-governed facility should do first. Sign up to take part.">
+<meta property="og:title" content="Have your say — Public AI USA">
+<meta property="og:description" content="A statewide public process will decide what a free Maine AI and the open tools built on compute in a community-governed facility should do first. Sign up to take part.">
+<meta property="og:type" content="website">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #EF3C24;
+  --red-hover: #CF2E17;
+  --black: #000;
+  --page: #fff;
+  --subtle: #F5F5F3;
+  --hairline: #E3E3E1;
+  --sans: "Overpass", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --pill: 999px;
+  --measure: 62ch;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--black);
+  background: var(--page);
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: var(--black);
+  text-decoration: underline;
+  text-decoration-color: var(--red);
+  text-underline-offset: 2px;
+}
+a:hover { color: var(--red); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+.container { width: 100%; max-width: 720px; margin: 0 auto; padding: 0 1rem; }
+
+/* header */
+.site-header { background: var(--page); }
+.site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 0.9rem; padding-bottom: 0.9rem; flex-wrap: wrap; }
+.brand { display: block; width: 150px; height: 32px; line-height: 0; }
+.brand svg { display: block; width: 100%; height: 100%; }
+.nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; margin: 0; padding: 0; list-style: none; }
+.nav a { text-decoration: none; }
+.nav a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--red); }
+
+/* sections */
+section { padding: 1.75rem 0; }
+section.rule { border-top: 1px solid var(--hairline); }
+section.subtle { background: var(--subtle); }
+section.hero { padding: 2.25rem 0 2rem; }
+
+h1, h2, h3 { font-weight: 600; margin: 0; line-height: 1.2; }
+h1 { font-size: clamp(26px, 4.4vw, 34px); max-width: 24ch; letter-spacing: -0.01em; }
+h2 { font-size: 20px; margin-top: 0; }
+h3 { font-size: 17px; margin-top: 1.25rem; }
+p { margin: 0.6rem 0 0; max-width: var(--measure); }
+p.lead { font-size: 18px; margin-top: 0.9rem; }
+ul.plain { margin: 0.6rem 0 0; padding-left: 1.15rem; max-width: var(--measure); }
+ul.plain li { margin-top: 0.4rem; }
+ul.plain li::marker { color: var(--red); }
+.mono { font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
+.note { border-left: 3px solid var(--red); padding: 0.25rem 0 0.25rem 0.9rem; margin-top: 1rem; max-width: var(--measure); }
+.note p:first-child { margin-top: 0; }
+.dateline { margin-top: 0.15rem; }
+
+/* buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 40px; padding: 0 1.1rem;
+  border: 0; border-radius: var(--pill);
+  background: var(--red); color: #fff;
+  font: 600 13px/1.4 var(--sans); text-transform: uppercase; letter-spacing: 0.02em;
+  text-decoration: none; white-space: nowrap; cursor: pointer;
+  transition: background-color 120ms ease;
+}
+.btn:hover { background: var(--red-hover); color: #fff; }
+.btn.ghost { background: transparent; color: var(--black); box-shadow: inset 0 0 0 1.5px var(--black); }
+.btn.ghost:hover { color: var(--red); box-shadow: inset 0 0 0 1.5px var(--red); }
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; }
+
+/* comparison table */
+table { width: 100%; border-collapse: collapse; margin-top: 1rem; text-align: left; }
+th, td { vertical-align: top; padding: 0.7rem 0.75rem 0.7rem 0; border-top: 1px solid var(--hairline); }
+thead th { border-top: 0; border-bottom: 1px solid var(--hairline); font-weight: 400; padding-top: 0; }
+tbody th { font-weight: 600; width: 22%; }
+td { width: 39%; }
+td.us { background: var(--subtle); padding-left: 0.75rem; }
+thead th.us { background: var(--subtle); padding-left: 0.75rem; }
+@media (max-width: 560px) {
+  table, thead, tbody, tr, th, td { display: block; width: 100%; }
+  thead { display: none; }
+  tbody th { width: 100%; padding-bottom: 0.2rem; }
+  td { border-top: 0; padding-top: 0.2rem; padding-right: 0; }
+  td::before { content: attr(data-label); display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.15rem; }
+  td.us { padding: 0.5rem 0.75rem; margin-top: 0.4rem; margin-bottom: 0.5rem; }
+}
+
+/* status + questions */
+.status { margin: 0.9rem 0 0; padding: 0; list-style: none; max-width: var(--measure); }
+.status li { padding: 0.55rem 0; border-top: 1px solid var(--hairline); }
+.status li:first-child { border-top: 0; padding-top: 0; }
+ol.questions { margin: 0.75rem 0 0; padding-left: 1.4rem; max-width: var(--measure); }
+ol.questions li { margin-top: 0.5rem; font-size: 17px; font-weight: 600; }
+ol.questions li span { display: block; font-weight: 400; font-size: 16px; margin-top: 0.15rem; }
+
+/* how it would work */
+.flow { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 1rem; max-width: var(--measure); border-top: 1px solid var(--hairline); }
+.flow div { padding: 0.75rem 0; border-bottom: 1px solid var(--hairline); display: grid; grid-template-columns: 2.2rem 1fr; gap: 0.5rem; }
+.flow b { color: var(--red); font-weight: 600; }
+.flow p { margin: 0; }
+
+/* get involved */
+.ask { padding: 1.25rem 0; border-top: 1px solid var(--hairline); scroll-margin-top: 1rem; }
+.container > .ask:first-child { border-top: 0; padding-top: 0.25rem; display: grid; grid-template-columns: 1fr; gap: 0.5rem; }
+.ask h2 { font-size: 18px; }
+.ask p { margin-top: 0.35rem; }
+.ask .btn { justify-self: start; margin-top: 0.5rem; }
+@media (min-width: 640px) {
+  .ask { grid-template-columns: 1fr auto; align-items: start; column-gap: 1.5rem; }
+  .ask .btn { margin-top: 0.15rem; }
+  .ask p { grid-column: 1; }
+}
+
+/* disclosures */
+.disc { border-top: 1px solid var(--hairline); }
+.disc-list { margin-top: 0.75rem; border-bottom: 1px solid var(--hairline); }
+.disc summary { list-style: none; cursor: pointer; padding: 0.95rem 2.25rem 0.95rem 0; position: relative; }
+.disc summary::-webkit-details-marker { display: none; }
+.disc summary::after { content: "+"; position: absolute; right: 0; top: 0.7rem; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; color: var(--red); font-size: 24px; line-height: 1; font-weight: 400; transition: transform 150ms ease; }
+.disc[open] summary::after { transform: rotate(45deg); }
+.disc summary:hover h2, .disc summary:hover h3 { color: var(--red); }
+.disc summary h2 { font-size: 18px; margin: 0; display: inline; }
+.disc summary h3 { font-size: 17px; margin: 0; display: inline; }
+.disc summary .hook { display: block; margin-top: 0.2rem; max-width: var(--measure); }
+.disc .body { padding: 0 0 1.4rem; }
+.disc .body > :first-child { margin-top: 0; }
+.disc { scroll-margin-top: 1rem; }
+.group-label { margin-top: 1.5rem; }
+.group-label + .disc-list { margin-top: 0.4rem; }
+
+/* forms */
+form.inq { max-width: var(--measure); margin-top: 0.5rem; }
+.field { margin-top: 1.1rem; }
+.field label, .field legend { display: block; font-weight: 600; margin-bottom: 0.3rem; padding: 0; }
+.field .help { display: block; font-size: 14px; margin: -0.15rem 0 0.4rem; }
+input[type=text], input[type=email], select, textarea { width: 100%; font: inherit; color: var(--black); padding: 0.55rem 0.65rem; border: 1px solid var(--black); border-radius: 0; background: #fff; }
+textarea { min-height: 6.5rem; resize: vertical; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--red); outline-offset: 1px; border-color: var(--red); }
+fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.field label.choice { display: flex; gap: 0.55rem; align-items: baseline; margin: 0.35rem 0 0; font-weight: 400; }
+.choice input { accent-color: var(--red); }
+.hidden { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.form-note { font-size: 14px; }
+
+/* people */
+.people { margin: 0.75rem 0 0; padding: 0; list-style: none; }
+.people li { display: grid; grid-template-columns: 44px 1fr auto; gap: 0.85rem; align-items: start; padding: 0.8rem 0; border-top: 1px solid var(--hairline); }
+.people li:first-child { border-top: 0; padding-top: 0.25rem; }
+.avatar { position: relative; width: 44px; height: 44px; background: var(--subtle); overflow: hidden; }
+.avatar span { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; }
+.avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.people p { margin: 0; max-width: none; }
+.people .bio { margin-top: 0.15rem; }
+.people .li-link { line-height: 0; padding-top: 3px; }
+.people .li-link svg { display: block; }
+
+/* news */
+.news { margin: 0.75rem 0 0; padding: 0; list-style: none; max-width: var(--measure); }
+.news li { padding: 0.75rem 0; border-top: 1px solid var(--hairline); }
+.news li:first-child { border-top: 0; padding-top: 0; }
+.news time { display: block; color: var(--red); }
+
+/* footer */
+.site-footer { border-top: 1px solid var(--hairline); }
+.site-footer .container { padding-top: 1.1rem; padding-bottom: 1.4rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem 1.5rem; }
+.site-footer p { margin: 0; }
+.site-footer .family { max-width: 46ch; }
+.mark { opacity: 0.6; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a class='brand' href='/'><svg width="100%" height="100%" role="img" aria-label="Public AI USA" viewBox="0 0 510 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="110" fill="#EF3C24"></rect><path d="M199.03 43.17C199.03 54.24 190.21 62.7 180.04 62.7H164.38C164.11 62.7 164.02 62.79 164.02 63.06V86.55C164.02 86.82 163.84 87 163.57 87H153.67C153.4 87 153.22 86.82 153.22 86.55V24.09C153.22 23.82 153.4 23.64 153.67 23.64H180.04C190.21 23.64 199.03 32.19 199.03 43.17ZM164.47 52.8H179.14C183.91 52.8 188.32 48.48 188.32 43.17C188.32 37.86 183.91 33.54 179.14 33.54H164.38C164.11 33.54 164.02 33.72 164.02 33.9V52.35C164.02 52.62 164.2 52.8 164.47 52.8ZM235.162 83.67C233.272 85.65 229.132 87.9 225.352 87.9C210.322 87.9 205.462 77.82 205.462 66.48V41.91C205.462 41.64 205.642 41.46 205.912 41.46H215.812C216.082 41.46 216.262 41.64 216.262 41.91V66.48C216.262 71.88 219.142 78 226.252 78C233.272 78 236.152 72.78 236.152 67.38V41.91C236.152 41.64 236.332 41.46 236.602 41.46H246.592C246.772 41.46 246.952 41.64 246.952 41.91V86.55C246.952 86.82 246.772 87 246.502 87H237.952C237.412 87 237.232 86.82 237.052 86.46L236.152 83.76C235.972 83.4 235.522 83.22 235.162 83.67ZM271.456 83.67C271.096 83.31 270.646 83.31 270.466 83.67L269.566 86.55C269.386 86.91 269.206 87 268.666 87H260.116C259.846 87 259.666 86.82 259.666 86.55V24.09C259.666 23.82 259.846 23.64 260.116 23.64H270.016C270.286 23.64 270.466 23.82 270.466 24.09V44.61C270.466 45.06 270.916 45.24 271.276 44.88C273.076 43.08 277.216 40.56 282.976 40.56C294.856 40.56 303.586 50.19 303.586 64.23C303.586 78.27 295.666 87.9 282.976 87.9C278.386 87.9 273.616 85.83 271.456 83.67ZM292.786 64.23C292.786 56.13 288.826 50.46 281.176 50.46C273.976 50.46 270.466 55.23 270.466 64.23C270.466 72.33 273.976 78 281.176 78C288.826 78 292.786 72.33 292.786 64.23ZM323.081 87H313.181C312.911 87 312.731 86.82 312.731 86.55V24.09C312.731 23.82 312.911 23.64 313.181 23.64H323.081C323.351 23.64 323.531 23.82 323.531 24.09V86.55C323.531 86.82 323.351 87 323.081 87ZM347.825 35.52H337.025C336.755 35.52 336.575 35.34 336.575 35.07V24.09C336.575 23.82 336.755 23.64 337.025 23.64H347.825C348.095 23.64 348.275 23.82 348.275 24.09V35.07C348.275 35.34 348.095 35.52 347.825 35.52ZM347.375 87H337.475C337.205 87 337.025 86.82 337.025 86.55V41.91C337.025 41.64 337.205 41.46 337.475 41.46H347.375C347.645 41.46 347.825 41.64 347.825 41.91V86.55C347.825 86.82 347.645 87 347.375 87ZM378.245 40.56C389.675 40.56 397.685 46.77 399.215 56.4C399.305 56.76 399.035 56.85 398.765 56.85H388.595C388.325 56.85 388.055 56.67 387.965 56.4C386.435 52.44 383.465 50.1 378.245 50.1C370.685 50.1 367.085 56.22 367.085 64.23C367.085 72.24 370.685 78.36 378.245 78.36C384.275 78.36 386.615 76.02 388.145 72.06C388.235 71.79 388.505 71.61 388.775 71.61H398.945C399.215 71.61 399.485 71.7 399.395 72.06C397.505 82.32 389.585 87.9 378.245 87.9C364.205 87.9 356.195 78.27 356.195 64.23C356.195 50.1 364.205 40.56 378.245 40.56ZM465.622 73.95H440.152C439.882 73.95 439.612 74.13 439.522 74.4L438.982 76.11L435.652 86.55C435.562 86.91 435.292 87 435.112 87H424.762C424.402 87 424.222 86.64 424.312 86.37L444.292 24.09C444.382 23.82 444.652 23.64 444.832 23.64H461.032C461.212 23.64 461.482 23.82 461.572 24.09L481.462 86.37C481.552 86.64 481.372 87 481.012 87H470.662C470.482 87 470.212 86.82 470.122 86.55L467.152 77.1L466.252 74.4C466.162 74.13 465.892 73.95 465.622 73.95ZM452.482 33.9L442.942 63.6C442.852 63.87 443.032 64.05 443.302 64.05H462.562C462.832 64.05 462.922 63.87 462.832 63.6L453.382 33.9C453.202 33.45 452.662 33.45 452.482 33.9ZM502.941 87H493.041C492.771 87 492.591 86.82 492.591 86.55V24.09C492.591 23.82 492.771 23.64 493.041 23.64H502.941C503.211 23.64 503.391 23.82 503.391 24.09V86.55C503.391 86.82 503.211 87 502.941 87Z" fill="#EF3C24"></path><path d="M28 70.6977V58.907L77.7485 44.8992L28 30.6899V19L92 38.5504V51.2481L28 70.6977ZM28 87V76.4186H92V87H28Z" fill="white"></path></svg></a>
+    <nav aria-label="Site">
+      <ul class="nav">
+        <li><a href='/'>What we're trying to do</a></li>
+        <li><a href='/different'>Why we're different</a></li>
+        <li><a aria-current='page' href='/public-process'>Have your say</a></li>
+        <li><a href='/get-involved'>Get involved</a></li>
+        <li><a href='/buy-compute'>Buy compute</a></li>
+        <li><a href='/about'>About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container">
+    <h1>Help decide what this is for</h1>
+    <p class="lead">Before we build the public side of MOCSI, a statewide public process will decide what a free Maine AI and the open tools should do first, who gets priority access, and what the project must never do. The result is the mandate we're bound to. Any developer can promise community benefit. We'd rather Mainers define it. Sign up below to take part, host a session, or follow along.</p>
+  </div>
+</section>
+
+<section class="rule" id="questions">
+  <div class="container">
+    <h2>What we're asking Mainers to decide</h2>
+    <ul class="plain">
+      <li>What a free Maine AI, built on library collections and public records, should be able to do first.</li>
+      <li>Which open tools for towns, libraries, schools, and state agencies come before the others.</li>
+      <li>Who gets priority access to the compute, and on what terms.</li>
+      <li>What MOCSI must never do. These become the red lines the mission lock enforces.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="rule subtle" id="how">
+  <div class="container">
+    <h2>How it will work</h2>
+    <p>The format is being designed now, and we'll publish it before the process starts. The shape: a representative group of Mainers drawn from across the state, sessions around Maine hosted in libraries and town halls, and an open online phase so anyone can weigh in. The results are published, including the objections. And it's meant to be run again on a set cadence, so the mandate is refreshed rather than fixed at founding.</p>
+    <h2>What's in scope</h2>
+    <p>Two things we'll say to participants up front, because a process that hides its limits is worse than none. In scope: the public-interest layer, all of it, including the red lines. Out of scope: whether the compute business exists. Objections to the whole idea are recorded and published all the same.</p>
+  </div>
+</section>
+
+<section class="rule" id="form">
+  <div class="container">
+    <h2>Sign up</h2>
+    <p>Online sign-up is coming soon. Until then, email <a href="mailto:hello@publicai.co?subject=Public%20process%20sign-up">hello@publicai.co</a> with the subject line "Public process sign-up", and tell us:</p>
+      <ul>
+        <li>your name and the town and county you live in;</li>
+        <li>how you'd like to take part: as a participant, by hosting a session, by spreading the word, or by staying informed;</li>
+        <li>any organization you're part of; and</li>
+        <li>what you think a free Maine AI should do first.</li>
+      </ul>
+  </div>
+</section>
+
+</main>
+
+<script>
+(function(){function o(){var h=location.hash;if(!h||h.length<2)return;var el=document.getElementById(h.slice(1));if(!el)return;var d=el.tagName==='DETAILS'?el:el.closest('details');while(d){d.open=true;d=d.parentElement&&d.parentElement.closest('details');}el.scrollIntoView();}addEventListener('hashchange',o);o();})();
+</script>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <p><strong>Public AI USA</strong></p>
+      <p><a href="mailto:hello@publicai.co">hello@publicai.co</a></p>
+    </div>
+    <p class="family">Part of the Public AI family: <a href="https://publicai.co">publicai.co</a> runs the shared inference service, <a href="https://publicai.network">publicai.network</a> is the coalition, and this site is the Maine project.</p>
+  </div>
+</footer>
+</body>
+</html>
