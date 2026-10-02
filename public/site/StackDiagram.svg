@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-labelledby="t d">
+  <title id="t">How MOCSI fits together</title>
+  <desc id="d">Three stacked tracks. The Software and Services Track runs on the Compute Track, which is housed in the Facilities Track and pays it a charge per kilowatt. Each upper layer can run on a rented substitute: cloud servers, or leased colocation as an interim home. Customers use the public tools and pay the Compute Track for capacity, seats, hosting, and engineering. A public process and shared mission spans all three. Each track has its own funders and likely legal form.</desc>
+  <defs>
+    <style>
+      .display { font-family: Georgia, 'Iowan Old Style', 'Times New Roman', serif; }
+      .body { font-family: Charter, 'Bitstream Charter', Georgia, serif; }
+      .caps { font-family: Charter, 'Bitstream Charter', Georgia, serif; font-size: 13px; letter-spacing: 1.5px; fill: #6B6B66; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#C8553D"/>
+    </marker>
+    <marker id="arrowInk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1F3D2B"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="800" fill="#F5F1E8"/>
+
+  <text x="40" y="46" class="display" font-size="28" fill="#1F3D2B">How MOCSI fits together</text>
+
+  <!-- customers -->
+  <rect x="130" y="70" width="570" height="50" rx="4" fill="#E8E2D2"/>
+  <text x="415" y="101" text-anchor="middle" class="body" font-size="17" fill="#1A1A1A">Maine institutions · public-interest organizations across the US</text>
+
+  <!-- customer flows -->
+  <line x1="375" y1="120" x2="375" y2="157" stroke="#C8553D" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="385" y="144" class="body" font-size="14" fill="#1A1A1A">use public tools, free or subsidized</text>
+  <line x1="165" y1="120" x2="165" y2="357" stroke="#C8553D" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="150" y="240" class="body" font-size="14" fill="#1A1A1A" transform="rotate(-90 150 240)" text-anchor="middle">pay for capacity and services</text>
+
+  <!-- shared mission band -->
+  <rect x="40" y="160" width="70" height="560" rx="4" fill="#D8E2DA"/>
+  <text x="80" y="440" text-anchor="middle" class="display" font-size="18" fill="#1F3D2B" transform="rotate(-90 80 440)">Public process and shared mission</text>
+
+  <!-- Software and Services Track -->
+  <rect x="190" y="160" width="450" height="170" rx="4" fill="#FFFFFF" stroke="#1F3D2B" stroke-width="1.5"/>
+  <text x="212" y="200" class="display" font-size="24" fill="#1F3D2B">Software and Services Track</text>
+  <text x="212" y="232" class="body" font-size="16" fill="#1A1A1A">Maine data layer · library archive</text>
+  <text x="212" y="256" class="body" font-size="16" fill="#1A1A1A">local tools for towns and libraries</text>
+  <text x="212" y="280" class="body" font-size="16" fill="#1A1A1A">AI literacy and workforce training</text>
+
+  <!-- seam 1 -->
+  <line x1="375" y1="357" x2="375" y2="333" stroke="#1F3D2B" stroke-width="1.5" marker-end="url(#arrowInk)"/>
+  <text x="388" y="350" class="body" font-size="14" font-style="italic" fill="#6B6B66">runs on</text>
+
+  <!-- Compute Track -->
+  <rect x="130" y="360" width="570" height="170" rx="4" fill="#D8D2C2" stroke="#1F3D2B" stroke-width="1.5"/>
+  <text x="152" y="400" class="display" font-size="24" fill="#1F3D2B">Compute Track</text>
+  <text x="152" y="432" class="body" font-size="16" fill="#1A1A1A">a liquid-cooled GPU cluster MOCSI operates</text>
+  <text x="152" y="456" class="body" font-size="16" fill="#1A1A1A">open-weight model hosting · agent hosting</text>
+  <text x="152" y="480" class="body" font-size="16" fill="#1A1A1A">engineering services</text>
+
+  <!-- seam 2 -->
+  <line x1="375" y1="557" x2="375" y2="533" stroke="#1F3D2B" stroke-width="1.5" marker-end="url(#arrowInk)"/>
+  <text x="388" y="550" class="body" font-size="14" font-style="italic" fill="#6B6B66">housed in · pays a charge per kilowatt</text>
+
+  <!-- Facilities Track -->
+  <rect x="130" y="560" width="570" height="160" rx="4" fill="#1F3D2B"/>
+  <text x="152" y="600" class="display" font-size="24" fill="#F5F1E8">Facilities Track</text>
+  <text x="152" y="632" class="body" font-size="16" fill="#F5F1E8">a renovated building: power, backup, liquid cooling,</text>
+  <text x="152" y="656" class="body" font-size="16" fill="#F5F1E8">heat recovery to the building</text>
+  <text x="152" y="690" class="body" font-size="16" fill="#D8D2C2">partly owned by the host community</text>
+
+  <!-- rented substitutes -->
+  <line x1="640" y1="345" x2="728" y2="345" stroke="#6B6B66" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <rect x="728" y="315" width="150" height="60" rx="4" fill="none" stroke="#6B6B66" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="803" y="341" text-anchor="middle" class="body" font-size="14" fill="#6B6B66">or rented</text>
+  <text x="803" y="360" text-anchor="middle" class="body" font-size="14" fill="#6B6B66">cloud servers</text>
+
+  <line x1="700" y1="545" x2="728" y2="545" stroke="#6B6B66" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <rect x="728" y="515" width="150" height="60" rx="4" fill="none" stroke="#6B6B66" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="803" y="541" text-anchor="middle" class="body" font-size="14" fill="#6B6B66">or leased</text>
+  <text x="803" y="560" text-anchor="middle" class="body" font-size="14" fill="#6B6B66">colocation, interim</text>
+
+  <!-- funders and forms -->
+  <text x="905" y="150" class="caps">FUNDED BY · LIKELY FORM</text>
+  <line x1="905" y1="160" x2="1165" y2="160" stroke="#1F3D2B" stroke-width="1"/>
+
+  <text x="905" y="205" class="body" font-size="17" fill="#1A1A1A">Philanthropy</text>
+  <text x="905" y="230" class="body" font-size="15" fill="#6B6B66">a nonprofit</text>
+
+  <text x="905" y="405" class="body" font-size="17" fill="#1A1A1A">Equipment debt, on an</text>
+  <text x="905" y="427" class="body" font-size="17" fill="#1A1A1A">equity or grant base</text>
+  <text x="905" y="452" class="body" font-size="15" fill="#6B6B66">a public-benefit corporation</text>
+
+  <text x="905" y="605" class="body" font-size="17" fill="#1A1A1A">Infrastructure and</text>
+  <text x="905" y="627" class="body" font-size="17" fill="#1A1A1A">energy grants</text>
+  <text x="905" y="652" class="body" font-size="15" fill="#6B6B66">a partnership with</text>
+  <text x="905" y="672" class="body" font-size="15" fill="#6B6B66">the host community</text>
+
+  <!-- caption -->
+  <text x="40" y="765" class="body" font-size="16" fill="#1A1A1A">Software and services can run on rented servers today, and compute in leased space. Owning each layer below lowers cost and keeps control in Maine.</text>
+</svg>
