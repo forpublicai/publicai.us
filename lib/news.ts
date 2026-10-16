@@ -38,7 +38,7 @@ export const news: NewsItem[] = [
   {
     date: "2026-05-01",
     parts: [
-      "We visited candidate sites and reviewed financing across Lincoln Mill in Brunswick, Loring Air Force Base, and CENTRA on Cumberland St. in Portland.",
+      "We visited candidate sites and reviewed financing.",
     ],
   },
   {
