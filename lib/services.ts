@@ -28,7 +28,7 @@ export const services: Service[] = [
     id: "aquaculture",
     name: "Public AI Aquaculture",
     status: "live",
-    audience: "Aquaculture operators in Van Buren, Maine",
+    audience: "Maine aquaculture operators",
     description:
       "Tells you which Maine DMR aquaculture license you need based on your species, equipment, site size, and lease duration, plus DMR regulatory Q&A.",
     href: "https://aquaculture.publicai.co",
