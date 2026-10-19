@@ -22,9 +22,9 @@ Logos and favicon are synced from the design system into `public/`.
 - `/about/` — Mission, people, and contact
 - `/funders/` — Co-investment overview for funders supporting MOCSI
 - `/waitlist/` — Join the MOCSI waitlist for organic compute demand
-- `/aquaculture/` — Redirects to [aquaculture.publicai.co](https://aquaculture.publicai.co)
+- `/aquaculture/` — Permanent redirect to [aquaculture.publicai.co](https://aquaculture.publicai.co), set in `next.config.ts`
 
-External services: [chat.publicai.co](https://chat.publicai.co), [libraries.publicai.co](https://libraries.publicai.co), [aquaculture.publicai.co](https://aquaculture.publicai.co)
+External services: [chat.publicai.co](https://chat.publicai.co), [libraries.publicai.co](https://libraries.publicai.co)
 
 ## Develop
 
