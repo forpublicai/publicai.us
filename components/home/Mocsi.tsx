@@ -34,16 +34,15 @@ export default function Mocsi() {
 
       <h3 className="pai-section mt-4">What</h3>
       <p className="pai-body mt-2 max-w-2xl">
-        Maine local government and nonprofits could use AI to significantly
-        increase their effectiveness. Unfortunately, issues with the
-        trustworthiness of current AI solutions and lack of access to AI
-        expertise are blocking the best uses of AI. MOCSI is building{" "}
+        Maine towns and nonprofits could use AI to answer residents&apos;
+        questions, find things in their records, and handle paperwork. Most
+        don&apos;t trust today&apos;s AI tools, and few have anyone on staff who
+        knows the field. MOCSI is building{" "}
         <Link href="/provenance/" className="hover:text-brand">
           trusted
         </Link>
         , local AI: designing applications tailored for these institutions and
-        building local AI expertise. We are building a solution that is
-        designed with the host community to benefit the host community. We
+        building local AI expertise. We
         are starting in Maine, but are building so other states can follow.
       </p>
       <p className="pai-body mt-2 max-w-2xl">
@@ -94,7 +93,7 @@ export default function Mocsi() {
       <p className="pai-body-secondary mt-2 max-w-2xl">
         Data centers are among the least popular things in America, and
         Maine towns have been voting this year to pause them. MOCSI&apos;s
-        will be small, in an existing building, in a community that wants
+        will be small, in an existing building, in a community that wants it
         and benefits from it. This has been done before. Maine has a history of{" "}
         <a
           href="https://www.houlton-maine.com/departments/houlton-water-company/"
