@@ -37,8 +37,11 @@ export default function Mocsi() {
         Maine local government and nonprofits could use AI to significantly
         increase their effectiveness. Unfortunately, issues with the
         trustworthiness of current AI solutions and lack of access to AI
-        expertise are blocking the best uses of AI. MOCSI is building trusted,
-        local AI: designing applications tailored for these institutions and
+        expertise are blocking the best uses of AI. MOCSI is building{" "}
+        <Link href="/provenance/" className="hover:text-brand">
+          trusted
+        </Link>
+        , local AI: designing applications tailored for these institutions and
         building local AI expertise. We are building a solution that is
         designed with the host community to benefit the host community. We
         are starting in Maine, but are building so other states can follow.

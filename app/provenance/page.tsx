@@ -59,7 +59,8 @@ export default function ProvenancePage() {
         <p className="pai-body mt-2 max-w-2xl">
           Provenance means you can trace every answer MOCSI gives back to where
           it came from. Ask us any of these questions about an answer, and we
-          will tell you.
+          will tell you. These promises apply to MOCSI&apos;s own services as
+          each one launches.
         </p>
       </PageSection>
 
