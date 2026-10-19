@@ -25,7 +25,7 @@ export default function FundersPage() {
             <h2 className="pai-h3">Where things stand</h2>
             <p className="pai-body mt-2">
               All three projects are under way: planning is completed, thanks
-              to generous funding for Co-Labs and our dedicated volunteers. We
+              to generous funding from the Co-Lab Fund and our dedicated volunteers. We
               have started raising the funds. Site selection is well defined
               and sites have been identified. We are talking with several
               Maine communities about candidate sites, and held two
