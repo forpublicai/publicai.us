@@ -21,8 +21,8 @@ export default function SiteFooter() {
             >
               Waitlist
             </Link>
-            <Link href="/funders/" className="pai-btn-label no-underline hover:text-brand">
-              Investors
+            <Link href="/information/" className="pai-btn-label no-underline hover:text-brand">
+              Information for
             </Link>
           </div>
         </div>
