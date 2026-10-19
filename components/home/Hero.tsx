@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageSection from "@/components/ds/PageSection";
+import { audiences } from "@/lib/audiences";
 
 export default function Hero() {
   return (
@@ -15,6 +16,18 @@ export default function Hero() {
           How provenance works
         </Link>
       </p>
+      <nav aria-label="Information for" className="mt-4 flex flex-wrap items-center gap-2">
+        <span className="pai-mono">Information for:</span>
+        {audiences.map((a) => (
+          <Link
+            key={a.id}
+            href={`/information/#${a.id}`}
+            className="pai-body rounded-full border border-hairline px-3 py-1 no-underline hover:text-brand"
+          >
+            {a.label}
+          </Link>
+        ))}
+      </nav>
       <p className="mt-4 text-lg opacity-60" aria-hidden="true">
         🥤🌊🦞⛰️
       </p>
