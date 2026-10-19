@@ -34,25 +34,65 @@ export default function Mocsi() {
 
       <h3 className="pai-section mt-4">What</h3>
       <p className="pai-body mt-2 max-w-2xl">
-        MOCSI is a planned community-scale data center (8-16 GPUs, &lt;$1M
-        capex) in Maine with local ownership, an explicit public interest
-        focus, and an open, auditable service stack.
+        Maine local government and nonprofits could use AI to significantly
+        increase their effectiveness. Unfortunately, issues with the
+        trustworthiness of current AI solutions and lack of access to AI
+        expertise are blocking the best uses of AI. MOCSI is building trusted,
+        local AI: designing applications tailored for these institutions and
+        building local AI expertise. We are building a solution that is
+        designed with the host community to benefit the host community. We
+        are starting in Maine, but are building so other states can follow.
       </p>
+      <p className="pai-body mt-2 max-w-2xl">
+        We have three projects, all under way: planning is done, and we have
+        started raising the funds. They can proceed separately, and each makes
+        the others stronger.
+      </p>
+      <ol className="pai-body mt-2 max-w-2xl list-decimal space-y-1 pl-6">
+        <li>
+          <strong>Software and Services</strong> will provide AI applications,
+          expertise, and training to Maine municipalities, libraries, schools,
+          and nonprofits. The software stack will be open source and the
+          models open weight, and every system will be designed for strong
+          data privacy.
+        </li>
+        <li>
+          <strong>Compute</strong> will provide dedicated GPUs for
+          institutions to run their own models, harnesses, RAG, and any other
+          compute task. <strong>Software and Services</strong> will run on{" "}
+          <strong>Compute</strong> once both are running.
+        </li>
+        <li>
+          <strong>Facilities</strong> will refit an existing building as a
+          small data center to host <strong>Compute</strong>. The hosting
+          community will be a stakeholder in the data center.
+        </li>
+      </ol>
 
       <h3 className="pai-section mt-4">Why</h3>
       <p className="pai-body-secondary mt-2 max-w-2xl">
-        Affordable compute for Maine citizens and businesses, so that
-        benefits accrue to Mainers instead of distant tech companies.
-        Imagine if AI was both 50% cheaper in Maine and 50% better at the
-        stuff that we care about. That&apos;s possible when people own their
-        own compute.
+        So that the benefits of AI stay in Maine. We will work with Maine
+        educators and nonprofits to build the Maine AI talent pool. We will
+        hire Mainers wherever we can and go out of state only for specialist
+        skills unavailable in Maine.
+      </p>
+      <p className="pai-body-secondary mt-2 max-w-2xl">
+        Every customer will know which model answered, which version, where
+        it ran, and who runs it. We will host in the United States, build
+        strong privacy protections, write data handling into every contract,
+        and let any customer leave with its data, no copies left behind. Our{" "}
+        <Link href="/provenance/" className="hover:text-brand">
+          provenance
+        </Link>{" "}
+        page has the details.
       </p>
 
       <h3 className="pai-section mt-4">How</h3>
       <p className="pai-body-secondary mt-2 max-w-2xl">
-        Right now, data centers are among the least popular things in
-        America. We turn that data center backlash into affordable compute.
-        This has been done before. Maine has a history of{" "}
+        Data centers are among the least popular things in America, and
+        Maine towns have been voting this year to pause them. MOCSI&apos;s
+        will be small, in an existing building, in a community that wants
+        and benefits from it. This has been done before. Maine has a history of{" "}
         <a
           href="https://www.houlton-maine.com/departments/houlton-water-company/"
           target="_blank"

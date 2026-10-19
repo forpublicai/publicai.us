@@ -24,12 +24,14 @@ export default function FundersPage() {
           <section>
             <h2 className="pai-h3">Where things stand</h2>
             <p className="pai-body mt-2">
-              We&apos;ve identified a brownfield site in Maine with dark fiber
-              and an interested tenant, and held two stakeholder workshops in
-              2026 (June and August) covering site, structure, and financing.
-              The pilot itself is scoped small: roughly 8–16 GPUs (less than
-              $1M capex), with a defined 12–18 month sunset to evaluate,
-              scale, or shut down.
+              All three projects are under way: planning is completed, thanks
+              to generous funding for Co-Labs and our dedicated volunteers. We
+              have started raising the funds. Site selection is well defined
+              and sites have been identified. We are talking with several
+              Maine communities about candidate sites, and held two
+              stakeholder workshops in 2026 (June and August) on site,
+              structure, and financing. Four organizations have signed
+              non-binding letters of intent.
             </p>
           </section>
 

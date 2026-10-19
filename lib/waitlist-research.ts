@@ -33,7 +33,7 @@ export async function researchWaitlistSignup(
   const domain = emailDomain(input.email);
   const prompt = [
     "You are researching a MOCSI (Maine Open Compute Services Initiative) waitlist signup.",
-    "MOCSI is a community-owned, organic AI compute project in Maine (hydropowered, community-controlled, ethical).",
+    "MOCSI (the Maine Open Compute Services Initiative) is building trusted, local AI, starting in Maine and open to institutions anywhere. It will provide AI applications, expertise, and training for municipalities, libraries, schools, and nonprofits; dedicated GPU compute for institutions that want to run their own models; and a small data center in an existing building, with the host community as a stakeholder. The software will be open source and the models open weight.",
     "Use web search. Then write a concise briefing for an internal ops email.",
     "",
     "Signup details:",

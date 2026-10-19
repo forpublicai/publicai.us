@@ -6,6 +6,7 @@ import { Logo } from "./Logo";
 
 const navItems = [
   { label: "MOCSI", href: "/#mocsi" },
+  { label: "Provenance", href: "/provenance/" },
   { label: "Waitlist", href: "/waitlist/" },
   { label: "About", href: "/about/" },
 ];

@@ -273,8 +273,18 @@ export default function WaitlistForm() {
           </Req>
         </p>
         <p className={helpClass}>
-          Organic means smaller-scale, hydropowered, community-controlled, and
-          ethical.
+          Organic means small-scale and local, run in a building where the
+          host community is a stakeholder, on open-source software and
+          open-weight models, with full{" "}
+          <a
+            href="/provenance/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-brand"
+          >
+            provenance
+          </a>{" "}
+          for every answer.
         </p>
         <div>
           <label htmlFor="organicPremiumPct" className="pai-section block">
