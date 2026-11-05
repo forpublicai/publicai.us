@@ -20,7 +20,7 @@ Logos and favicon are synced from the design system into `public/`.
 
 - `/` — Homepage with MOCSI story, service divisions table, and news & updates
 - `/about/` — Mission, people, and contact
-- `/funders/` — Co-investment overview for funders supporting MOCSI
+- `/plan/` — Active MOCSI plan: research, models, site notes, and reusable package
 - `/waitlist/` — Join the MOCSI waitlist for organic compute demand
 - `/aquaculture/` — Redirects to [aquaculture.publicai.co](https://aquaculture.publicai.co)
 

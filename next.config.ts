@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
     return [
       { source: "/loi", destination: "/waitlist/", permanent: true },
       { source: "/loi/", destination: "/waitlist/", permanent: true },
+      { source: "/funders", destination: "/plan/", permanent: true },
+      { source: "/funders/", destination: "/plan/", permanent: true },
     ];
   },
 };

@@ -15,8 +15,7 @@ export default function WaitlistPage() {
   return (
     <>
       <PageSection>
-        <p className="pai-mono">MOCSI</p>
-        <h1 className="pai-h2 mt-1">Join the waitlist</h1>
+        <h1 className="pai-h2">Join the waitlist</h1>
         <p className="pai-body mt-2 max-w-2xl">
           MOCSI (Maine Open Compute Services Initiative) is a community-owned compute center in development in Maine. We specialize in local, 'organic' compute: hydropowered, community-controlled, and locally sourced AI inference, right here in Maine.
         </p>

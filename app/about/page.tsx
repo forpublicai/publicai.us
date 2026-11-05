@@ -49,9 +49,9 @@ export default function AboutPage() {
               .
             </p>
             <p className="pai-body mt-1">
-              For funders, visit{" "}
-              <Link href="/funders/" className="hover:text-brand">
-                Support MOCSI
+              For the active plan and working materials, visit{" "}
+              <Link href="/plan/" className="hover:text-brand">
+                The plan
               </Link>
               .
             </p>
