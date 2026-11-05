@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import PageSection from "@/components/ds/PageSection";
 import WaitlistForm from "./WaitlistForm";
 
+/** Keep the function alive for background research + email after the form returns. */
+export const maxDuration = 120;
+
 export const metadata: Metadata = {
   title: "Waitlist | Public AI USA",
   description:

@@ -1,4 +1,5 @@
-import { generateText, gateway, isStepCount } from "ai";
+import { generateText, stepCountIs } from "ai";
+import { createOpenRouter } from "@openrouter/ai-sdk-provider";
 
 export type WaitlistResearchInput = {
   organization: string;
@@ -30,6 +31,23 @@ function emailDomain(email: string): string | null {
 export async function researchWaitlistSignup(
   input: WaitlistResearchInput,
 ): Promise<WaitlistResearch | null> {
+  const apiKey = process.env.OPENROUTER_API_KEY?.trim();
+  if (!apiKey) {
+    console.error("OPENROUTER_API_KEY is not set; skipping waitlist research");
+    return null;
+  }
+
+  const modelId =
+    process.env.OPENROUTER_MODEL?.trim() || "anthropic/claude-opus-5";
+
+  const openrouter = createOpenRouter({
+    apiKey,
+    headers: {
+      "HTTP-Referer": "https://publicai.us",
+      "X-Title": "Public AI USA Waitlist",
+    },
+  });
+
   const domain = emailDomain(input.email);
   const prompt = [
     "You are researching a MOCSI (Maine Open Compute Services Initiative) waitlist signup.",
@@ -59,16 +77,15 @@ export async function researchWaitlistSignup(
 
   try {
     const { text, sources } = await generateText({
-      model: "openai/gpt-5.4-nano",
+      model: openrouter(modelId),
       prompt,
       tools: {
-        perplexity_search: gateway.tools.perplexitySearch({
+        web_search: openrouter.tools.webSearch({
           maxResults: 8,
-          searchLanguageFilter: ["en"],
-          country: "US",
+          engine: "auto",
         }),
       },
-      stopWhen: isStepCount(4),
+      stopWhen: stepCountIs(4),
       maxRetries: 1,
     });
 

@@ -1,5 +1,6 @@
 "use server";
 
+import { after } from "next/server";
 import { Resend } from "resend";
 import { ensureLoiTable, getSql } from "@/lib/db";
 import { researchWaitlistSignup } from "@/lib/waitlist-research";
@@ -26,6 +27,13 @@ function bool(formData: FormData, key: string): boolean {
   return formData.get(key) === "on" || formData.get(key) === "true";
 }
 
+/** Keep the typed digits; strip grouping commas only. */
+function normalizeComputeAmount(raw: string): string | null {
+  const t = raw.trim().replace(/,/g, "");
+  if (!/^\d+(\.\d+)?$/.test(t)) return null;
+  return t;
+}
+
 export async function submitWaitlist(formData: FormData): Promise<WaitlistSubmitResult> {
   // Honeypot — bots fill this; humans leave it empty
   if (str(formData, "website")) {
@@ -37,7 +45,7 @@ export async function submitWaitlist(formData: FormData): Promise<WaitlistSubmit
   const email = str(formData, "email");
   const location = str(formData, "location");
   const computeUnit = str(formData, "computeUnit");
-  const computeAmount = str(formData, "computeAmount");
+  let computeAmount = str(formData, "computeAmount");
   const computeScale = str(formData, "computeScale");
   const organicRaw = str(formData, "organicPremiumPct");
   const computePurpose = str(formData, "computePurpose");
@@ -62,14 +70,18 @@ export async function submitWaitlist(formData: FormData): Promise<WaitlistSubmit
     if (!COMPUTE_SCALES.includes(computeScale as (typeof COMPUTE_SCALES)[number])) {
       return { ok: false, error: "Please select a rough scale for monthly compute." };
     }
-  } else if (!computeAmount) {
-    return {
-      ok: false,
-      error:
-        computeUnit === "usd"
-          ? "Please enter an indicative monthly budget in USD."
-          : "Please enter an indicative monthly GPU-hour amount.",
-    };
+  } else {
+    const normalized = normalizeComputeAmount(computeAmount);
+    if (!normalized) {
+      return {
+        ok: false,
+        error:
+          computeUnit === "usd"
+            ? "Please enter an indicative monthly budget in USD."
+            : "Please enter an indicative monthly GPU-hour amount.",
+      };
+    }
+    computeAmount = normalized;
   }
 
   const organicPremiumPct = Number.parseInt(organicRaw, 10);
@@ -142,34 +154,36 @@ export async function submitWaitlist(formData: FormData): Promise<WaitlistSubmit
     };
   }
 
-  try {
-    const research = await researchWaitlistSignup({
-      organization,
-      name,
-      email,
-      location,
-      comments: [computePurpose, comments].filter(Boolean).join("\n\n"),
-    });
-    await sendWaitlistEmail(
-      {
+  const emailPayload: WaitlistEmailPayload = {
+    organization,
+    name,
+    email,
+    location,
+    computeUnit,
+    computeAmount,
+    computeScale,
+    organicPremiumPct,
+    computePurpose,
+    neededBy,
+    comments,
+    fundraisingRef,
+  };
+  const researchComments = [computePurpose, comments].filter(Boolean).join("\n\n");
+
+  after(async () => {
+    try {
+      const research = await researchWaitlistSignup({
         organization,
         name,
         email,
         location,
-        computeUnit,
-        computeAmount,
-        computeScale,
-        organicPremiumPct,
-        computePurpose,
-        neededBy,
-        comments,
-        fundraisingRef,
-      },
-      research?.summaryHtml ?? null,
-    );
-  } catch (err) {
-    console.error("Waitlist email failed (submission was saved):", err);
-  }
+        comments: researchComments,
+      });
+      await sendWaitlistEmail(emailPayload, research?.summaryHtml ?? null);
+    } catch (err) {
+      console.error("Waitlist email failed (submission was saved):", err);
+    }
+  });
 
   return { ok: true };
 }
@@ -203,10 +217,10 @@ const SCALE_LABELS: Record<string, string> = {
 
 function formatCompute(p: WaitlistEmailPayload): string {
   if (p.computeUnit === "gpu_hours") {
-    return `~${p.computeAmount} GPU-hours / month`;
+    return `${p.computeAmount} GPU-hours / month`;
   }
   if (p.computeUnit === "usd") {
-    return `~$${p.computeAmount} / month`;
+    return `$${p.computeAmount} / month`;
   }
   return SCALE_LABELS[p.computeScale] ?? p.computeScale;
 }
@@ -249,6 +263,7 @@ async function sendWaitlistEmail(
       process.env.LOI_TO_EMAIL ?? "josh@publicai.co",
       "fletcher@kittredge.com",
       "matthewsteinvictor@gmail.com",
+      "maine-aaaasw6zkoxsfekhntphtihq6i@pubai.slack.com",
     ]),
   ];
 

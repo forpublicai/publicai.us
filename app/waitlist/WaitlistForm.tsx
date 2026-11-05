@@ -223,9 +223,9 @@ export default function WaitlistForm() {
           <input
             id="computeAmount"
             name="computeAmount"
-            type="number"
-            min={0}
-            step="any"
+            type="text"
+            inputMode="decimal"
+            autoComplete="off"
             required
             aria-label="Approximate GPU-hours per month"
             placeholder="e.g. 500"
@@ -236,9 +236,9 @@ export default function WaitlistForm() {
           <input
             id="computeAmount"
             name="computeAmount"
-            type="number"
-            min={0}
-            step="any"
+            type="text"
+            inputMode="decimal"
+            autoComplete="off"
             required
             aria-label="Approximate monthly budget in USD"
             placeholder="e.g. 2000"
@@ -402,9 +402,9 @@ export default function WaitlistForm() {
               Within how many months?
             </h2>
             <input
-              type="number"
-              min={1}
-              step={1}
+              type="text"
+              inputMode="numeric"
+              pattern="[0-9]*"
               value={withinMonths}
               onChange={(e) => setWithinMonths(e.target.value)}
               className={fieldClass}
